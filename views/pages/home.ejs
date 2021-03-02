@@ -1,11 +1,24 @@
 <%- include('../partials/header'); %>
+ 
+<div class="container mt-5">
+    
+    <a href="/cadastro"><button class="btn btn-primary">Cadastro</button></a>
+    
 
-    <h1>Home</h1>
+    <div class="card mt-2">
 
-    <form action="/gerador" method="POST">
-        <input type="text" name="url" placeholder="Digite algo">
-        <button type="submit"> Gerar QRCode </button>
-    </form>
+        <div class="card-header">
+            <h1>Conversor de QRCode</h1>
+        </div>
 
+        <div class="card-body">
+            <form action="/gerador" method="POST" >
+                <input type="text" name="url" placeholder="Digite o código" class="form-control">
+                <button type="submit" class="btn btn-primary form-control mt-3"> Gerar QRCode </button>
+            </form>
+        </div>
+
+    </div>
+</div>
 
 <%- include('../partials/footer'); %>

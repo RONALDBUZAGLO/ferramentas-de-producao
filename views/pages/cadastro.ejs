@@ -1,0 +1,36 @@
+<%- include('../partials/header'); %>
+
+    
+<div class="container mt-5">
+    
+    <a href="/"><button class="btn btn-primary">Voltar</button></a>
+
+    <div class="card mt-2">
+        <div class="card-header ">
+            <h1>Cadastro de stencil</h1>
+        </div>
+        
+        <div class="card-body">
+            <form action="/gerarCode" method="POST" >
+                <label for="codigoDoPrograma ">Código do programa</label>
+                <input type="text" name="codigoDoPrograma" placeholder="00" class="form-control" maxlength="2">
+
+                <label for="lado" class="mt-2">Lado da placa</label>
+                <input type="text" name="lado" placeholder="A/B" class="form-control" maxlength="1">
+                
+                <label for="revisaoSerie" class="mt-2">Revisão/Série</label>
+                <input type="text" name="revisaoSerie" placeholder="00" class="form-control">
+
+                <label for="mf" class="mt-2">MF</label>
+                <input type="text" name="mf" placeholder="00000" class="form-control" maxlength="1">
+                
+                <label for="stencilId" class="mt-2">ID</label>
+                <input type="text" name="stencilId" placeholder="00" class="form-control">
+
+                <button type="submit" class="btn btn-primary form-control mt-3"> Gerar QRCode </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer'); %>
