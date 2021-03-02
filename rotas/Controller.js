@@ -18,7 +18,7 @@ router.post("/gerador",(req,res)=>{
 router.get("/cadastro",(req,res)=>{
     res.render('pages/cadastro');
 });
-router.get("/gerarCode",(req,res)=>{
+router.post("/gerarCode",(req,res)=>{
     const c1 = req.body.codigoDoPrograma;
     const c2 = req.body.lado;
     const c3 = req.body.revisaoSerie;
