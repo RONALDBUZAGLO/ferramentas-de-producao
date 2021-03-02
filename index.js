@@ -1,30 +1,21 @@
 const express = require("express");
 const app = express();
-
-const qr = require("qr-image");
+const bodyParser = require("body-parser");
+const rotasControler = require('./rotas/Controller');
 
 app.set("view engine","ejs");
 
+app.use(express.static('public'));
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+
+
+app.use("/",rotasControler);
+
+
 app.get("/",(req,res)=>{
-    res.render('home');
-});
-
-app.get("/qr/:qrcode",(req,res)=>{
-    const url = req.params.qrcode;
-    const code = qr.image(url, {type: 'svg'});
-
-    // res.type('svg');
-
-    // code.pipe(res);
-    
-    console.log(code);
-    res.render('saida',{code:code});
-});
-
-app.post("/gerador",(req,res)=>{
-    const entrada = req.body.entrada;
-    console.log(entrada);
-    res.render('/qr/:' + entrada);
+    res.render('pages/home');
 });
 
 
