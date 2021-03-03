@@ -27,13 +27,7 @@ router.post("/gerarCode",(req,res)=>{
     const c6 = req.body.descricao;
     const c7 = req.body.modificacao;
 
-    const concatenado =   c1 + '/' 
-                        + c2 +  '/' 
-                        + c3 +  '/' 
-                        + c4 +  '/' 
-                        + c5 +  '/' 
-                        + c6 +  '/'
-                        + c7;
+    const concatenado =c1+'/'+c2+'/'+c3+'/'+c4+'/'+c5+'/'+c6+'/'+c7;
 
     if (concatenado.length === 0){
     res.send("Empty data!");
