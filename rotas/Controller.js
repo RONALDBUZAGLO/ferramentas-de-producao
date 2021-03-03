@@ -11,7 +11,7 @@ router.post("/gerador",(req,res)=>{
 
     qr.toDataURL(url,{ errorCorrectionLevel: 'H', version: 5},(err,src)=>{
         if (err) res.send("error ocoured");
-        res.render("pages/saida",{src})
+        res.render("pages/geradorRapido",{src})
     })
 });
 
@@ -35,7 +35,7 @@ router.post("/gerarCode",(req,res)=>{
     }
 
     qr.toDataURL(concatenado,{ errorCorrectionLevel: 'H', version: 7 },(err,src)=>{
-        if (err) res.send("error ocoured" + err);
+        if (err) res.send("Aconteceu um erro: " + err + "\nProcure suporte de programação!");
         res.render("pages/saida",{
             src,
             codigoDoPrograma,
