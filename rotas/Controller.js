@@ -24,8 +24,16 @@ router.post("/gerarCode",(req,res)=>{
     const c3 = req.body.revisaoSerie;
     const c4 = req.body.mf;
     const c5 = req.body.stencilId;
+    const c6 = req.body.descricao;
+    const c7 = req.body.modificacao;
 
-    const concatenado = c1+c2+c3+c4+c5;
+    const concatenado =   c1 + '/' 
+                        + c2 +  '/' 
+                        + c3 +  '/' 
+                        + c4 +  '/' 
+                        + c5 +  '/' 
+                        + c6 +  '/'
+                        + c7;
 
     if (concatenado.length === 0){
     res.send("Empty data!");

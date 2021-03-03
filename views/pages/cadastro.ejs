@@ -12,20 +12,27 @@
         
         <div class="card-body">
             <form action="/gerarCode" method="POST" >
+                
                 <label for="codigoDoPrograma ">Código do programa</label>
-                <input type="text" name="codigoDoPrograma" placeholder="00" class="form-control" maxlength="2">
+                <input type="text" name="codigoDoPrograma" placeholder="00" class="form-control" maxlength="2" pattern="^[0-9]{2}$">
 
                 <label for="lado" class="mt-2">Lado da placa</label>
-                <input type="text" name="lado" placeholder="A/B" class="form-control" maxlength="1">
+                <input type="text" name="lado" placeholder="A/B" class="form-control" maxlength="1" pattern="^[AB]$">
                 
                 <label for="revisaoSerie" class="mt-2">Revisão/Série</label>
-                <input type="text" name="revisaoSerie" placeholder="00" class="form-control">
+                <input type="text" name="revisaoSerie" placeholder="00" class="form-control" maxlength="2" pattern="^[0-9]{2}$">
 
                 <label for="mf" class="mt-2">MF</label>
-                <input type="text" name="mf" placeholder="00000" class="form-control" maxlength="1">
+                <input type="text" name="mf" placeholder="00000" class="form-control" maxlength="5" pattern="^[0-9]{5}$">
                 
                 <label for="stencilId" class="mt-2">ID</label>
-                <input type="text" name="stencilId" placeholder="00" class="form-control">
+                <input type="text" name="stencilId" placeholder="0000" class="form-control" maxlength="4" pattern="^[0-9]{4}$">
+
+                <label for="descricao" class="mt-2">Descrição do Stencil</label>
+                <input type="text" name="descricao" placeholder="Nome do produto" class="form-control">
+                
+                <label for="modificacao" class="mt-2">Modificação</label>
+                <input type="text" name="modificacao" placeholder="Modificação" class="form-control">
 
                 <button type="submit" class="btn btn-primary form-control mt-3"> Gerar QRCode </button>
             </form>
