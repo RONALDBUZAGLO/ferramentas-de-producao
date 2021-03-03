@@ -18,6 +18,7 @@ router.post("/gerador",(req,res)=>{
 router.get("/cadastro",(req,res)=>{
     res.render('pages/cadastro');
 });
+
 router.post("/gerarCode",(req,res)=>{
     const c1 = req.body.codigoDoPrograma;
     const c2 = req.body.lado;
@@ -38,8 +39,5 @@ router.post("/gerarCode",(req,res)=>{
         res.render("pages/saida",{src})
     })
 });
-
-
-
 
 module.exports = router;
