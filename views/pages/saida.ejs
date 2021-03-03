@@ -1,21 +1,85 @@
 <%- include('../partials/header'); %>
 
+
+
+
+
 <div class="container mt-4">
 
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="<%= src %>" alt="QRCode">
+    <!-- ETIQUETA -->
+    <div class="etiqueta d-flex">
+          
+        <!-- IMAGEM -->
+        <div class="flex-row divImg">
+            <img src="<%= src %>" alt="QRCode" width="73px">
+        </div><!-- IMAGEM -->
+
+        <!-- DADOS -->
+        <div class="flex-row d-flex justify-content-around flex-fill ">
+            
+            <div class="flex-row flex-fill">
+                <div class="flex-column h-25 outblack " style="background-image: url(/public/img/blue.jpg);"></div>
+                <div class="flex-column h-25 outblack " ><p><strong>CÓDIGO PROG.:</strong> <%= codigoDoPrograma%>XX<%=lado%><%=revisaoSerie%>XX</p></div>
+                <div class="flex-column h-25 outblack " ><p><strong>CÓDIGO PCI: </strong>0000000000</p></div>
+                <div class="flex-column h-25 outblack " ><p><strong>REV: </strong><%=revisaoSerie%></p></div>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+            <div class="flex-row flex-fill">    
+                <div class="flex-column h-25 outblack " ><p><strong> </strong></p></div>
+                <div class="flex-column h-25 outblack " ><p><strong>LARGURA PCI: </strong>000,0 mm</p></div>
+                <div class="flex-column h-25 outblack " ><p><strong>ID STENCIL: </strong><%=stencilId%></p></div>
+                <div class="flex-column h-25 outblack " ><p><strong>MF: </strong><%=mf%></p></div>
+            </div>
+
+            <div class="flex-row flex-fill">
+                <div class="flex-column h-25 outblack " ><p><strong>ESP. STENCIL: </strong>0 mil</p></div>
+                <div class="flex-column h-25 outblack " ><p><strong>FORN: </strong>METALFOTO</p></div>
+                <div class="flex-column h-25 outblack " ><p><strong>DATA FAB.: </strong>00/00/0000</p></div>    
+                <div class="flex-column h-25 outblack " ><p><strong>LADO: </strong><%=lado%></p></div>
+            </div>
+    
+        </div><!-- DADOS -->
+
+    </div><!-- ETIQUETA -->
+
+
+
+    <!-- <div class="etiqueta d-flex mt-4">
+          
+        
+        <div class="flex-row divImg">
+            <img src="<%= src %>" alt="QRCode" width="73px">
+        </div>
+
+        
+        <div class="flex-row justify-content-around flex-fill ">
+            
+            <div class="container">
+                <div class="row" style="height: 10px;">
+                    <div class="col outblack " style="background-image: url(/public/img/blue.jpg);"></div>
+                    <div class="col outblack " ><p><strong>CÓDIGO PROG.:</strong> <%= codigoDoPrograma%>XX<%=lado%><%=revisaoSerie%>XX</p></div>
+                    <div class="col outblack " ><p><strong>CÓDIGO PCI: </strong>0000000000</p></div>
+                    <div class="col outblack " ><p><strong>REV: </strong><%=revisaoSerie%></p></div>
+                </div>
+    
+                <div class="row" style="height: 10px;">    
+                    <div class="col outblack " ><p><strong> </strong></p></div>
+                    <div class="col outblack " ><p><strong>LARGURA PCI: </strong>000,0 mm</p></div>
+                    <div class="col outblack " ><p><strong>ID STENCIL: </strong><%=stencilId%></p></div>
+                    <div class="col outblack " ><p><strong>MF: </strong><%=mf%></p></div>
+                </div>
+    
+                <div class="row" style="height: 10px;">
+                    <div class="col outblack " ><p><strong>ESP. STENCIL: </strong>0 mil</p></div>
+                    <div class="col outblack " ><p><strong>FORN: </strong>METALFOTO</p></div>
+                    <div class="col outblack " ><p><strong>DATA FAB.: </strong>00/00/0000</p></div>    
+                    <div class="col outblack " ><p><strong>LADO: </strong><%=lado%></p></div>
                 </div>
             </div>
+    
         </div>
-    </div>
+
+    </div> -->
 
 </div>
     
