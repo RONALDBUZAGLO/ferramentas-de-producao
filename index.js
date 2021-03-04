@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const rotasControler = require('./rotas/Controller');
 const connection = require('./database/database');
 const Dados = require('./database/Dados');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 //CONFIGURAÇÃO DATABASE
 connection.authenticate().then(()=>{
@@ -17,6 +19,15 @@ app.set("view engine","ejs");
 
 //CONFIGURAÇÃO DA PASTA DE ARQUIVOS ESTÁTICOS
 app.use(express.static('public'));
+
+//
+app.use(session({
+    secret: 'secret',
+    cookie:{maxAge: 60000},
+    resave:false,
+    saveUninitialized:false,
+}));
+app.use(flash())
 
 //CONFIGURAÇÃO DO BODY-PARSER
 app.use(bodyParser.urlencoded({extended:false}));
