@@ -17,7 +17,6 @@ router.post("/gerador",(req,res)=>{
 });
 
 
-
 router.get("/cadastro",(req,res)=>{
     res.render('pages/cadastro');
 });
