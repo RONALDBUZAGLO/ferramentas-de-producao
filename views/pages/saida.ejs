@@ -1,6 +1,10 @@
 <%- include('../partials/header'); %>
 
-
+<%if(message.length > 0){%>
+    <div class="alert alert-primary">
+        <%= message %>
+    </div>
+<%}%>
 
 
 

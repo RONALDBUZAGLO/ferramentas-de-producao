@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const qr = require("qrcode");
 const Dados = require('../database/Dados');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 router.post("/gerador",(req,res)=>{
     const url = req.body.url;
@@ -61,8 +63,9 @@ router.post("/gerarCode",(req,res)=>{
             if (err) {
                 res.send("Aconteceu um erro: " + err + "\nProcure suporte de programação!");
             }
-            
+            req.flash('message','save success');
             res.render("pages/saida",{
+                message:req.flash('message'),
                 src,
                 codigoDoPrograma,
                 lado,
