@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const qr = require("qrcode");
 const Dados = require('../database/Dados');
-const session = require('express-session');
-const flash = require('connect-flash');
+
 
 router.post("/gerador",(req,res)=>{
     const url = req.body.url;
