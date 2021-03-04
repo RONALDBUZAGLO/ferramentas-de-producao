@@ -23,8 +23,6 @@ router.get("/cadastro",(req,res)=>{
     res.render('pages/cadastro');
 });
 
-
-
 router.post("/gerarCode",(req,res)=>{
 
     const codigoDoPrograma = req.body.codigoDoPrograma;
