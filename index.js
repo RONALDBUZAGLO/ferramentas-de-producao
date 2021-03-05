@@ -37,9 +37,12 @@ app.use(bodyParser.json());
 app.use("/",rotasControler);
 
 app.get("/",(req,res)=>{
-    res.render('pages/home');
+    res.render('pages/menu');
 });
 
+app.get("/",(req,res)=>{
+    res.render('pages/home');
+});
 
 const port = 3000;
 app.listen(port,()=>{
