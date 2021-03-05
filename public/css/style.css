@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(210, 222, 255);
+}
+
 /* ETIQUETA QRCODE */
 .outblack{
     border: black solid 1px;
