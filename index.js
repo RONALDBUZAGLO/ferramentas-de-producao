@@ -14,6 +14,7 @@ connection.authenticate().then(()=>{
         console.log(" Houve um erro: " + msgError);
     });
 
+//CONFIGURAÇÃO DO SESSION
 app.use(session({
     secret: 'secret',
     cookie:{maxAge:60000},
@@ -21,6 +22,7 @@ app.use(session({
     saveUninitialized:false,
 }));
 
+//CONFIGURAÇÃO DO FLASH
 app.use(flash());
 
 //CONFIGURAÇÃO DA VIEW ENGINE EJS
@@ -33,9 +35,11 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-//INPORTAÇÃO DAS ROTAS
+//IMPORTAÇÃO DE ROTAS
 app.use("/",rotasControler);
 
+
+//ROTAS
 app.get("/",(req,res)=>{
     res.render('pages/menu');
 });
