@@ -9,6 +9,20 @@
 
 <div class="container">
     <h1>Lista de Stencils</h1>
+
+    <% stencils.forEach(stencil => { %>
+        
+        <p><%=stencil.codigoDoPrograma%></p>
+        <p><%=stencil.lado%></p>
+        <p><%=stencil.revisaoSerie%></p>
+        <p><%=stencil.mf%></p>
+        <p><%=stencil.stencilId%></p>
+        <p><%=stencil.descricao%></p>
+        <p><%=stencil.modificacao%></p>
+        <hr>
+    
+    <% }) %>
+
 </div>
 
 <%- include('../../../partials/footer'); %>
