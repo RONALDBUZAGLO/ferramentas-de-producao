@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const rotasControllerMenu = require('./rotas/controllerMenu');
+const controllerMenu = require('./rotas/controllerMenu');
+const controllerStencil = require('./rotas/controllerStencil');
 const connection = require('./database/database');
 const Dados = require('./database/Dados');
 const session = require('express-session');
@@ -36,8 +37,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //IMPORTAÇÃO DE ROTAS
-app.use("/",rotasControllerMenu);
-
+app.use("/",controllerMenu);
+app.use("/",controllerStencil);
 
 //ROTAS
 app.get("/",(req,res)=>{

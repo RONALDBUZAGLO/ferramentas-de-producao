@@ -93,7 +93,7 @@ router.post("/gerarCode",(req,res)=>{
 
     }).catch((err)=>{
         console.log("erro ao salvar dados: "+err);
-        res.redirect('/cadastro');
+        res.redirect('/pages/');
     });
 
 });
