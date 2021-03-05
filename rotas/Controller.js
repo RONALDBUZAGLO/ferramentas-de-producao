@@ -4,6 +4,27 @@ const qr = require("qrcode");
 const Dados = require('../database/Dados');
 
 
+//ROTAS MENU
+router.get("/cadastro-de-stencil",(req,res)=>{
+    res.render('pages/menu/cadastro-de-stencil');
+});
+
+router.get("/historico-de-produto",(req,res)=>{
+    res.render("pages/menu/historico-de-produto");
+});
+
+router.get("/estoque-de-pecas",(req,res)=>{
+    res.render("pages/menu/estoque-de-pecas");
+});
+
+router.get("/maquinas-e-manutencoes",(req,res)=>{
+    res.render("pages/menu/maquinas-e-manutencoes");
+});//ROTAS MENU
+
+
+
+
+//GERA QR CODE PARA A ROTA GERADOR RÁPIDO
 router.post("/gerador",(req,res)=>{
     const url = req.body.url;
 
@@ -14,14 +35,11 @@ router.post("/gerador",(req,res)=>{
     qr.toDataURL(url,{ errorCorrectionLevel: 'H', version: 5},(err,src)=>{
         if (err) res.send("error ocoured");
         res.render("pages/geradorRapido",{src});
-    })
+    });
 });
 
 
-router.get("/cadastro",(req,res)=>{
-    res.render('pages/cadastro');
-});
-
+//GERA QR CODE PARA A ROTA CADASTRO DE STENCIL
 router.post("/gerarCode",(req,res)=>{
 
     const codigoDoPrograma = req.body.codigoDoPrograma;
@@ -62,7 +80,7 @@ router.post("/gerarCode",(req,res)=>{
             }
             req.flash('message','save success');
             res.render("pages/saida",{
-                message:req.flash('message'),
+                message: req.flash('message'),
                 src,
                 codigoDoPrograma,
                 lado,

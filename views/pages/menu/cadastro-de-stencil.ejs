@@ -1,0 +1,71 @@
+<%- include('../../partials/header'); %>
+<%- include('../../partials/navbar'); %>
+
+<div class="container mt-5">
+    
+    <div class="card ">
+        <div class="card-header ">
+            <h1>Cadastro de Stencil</h1>
+        </div>
+        
+        <div class="card-body">
+            <form action="/gerarCode" method="POST" >
+                
+                <!-- INPUT TEXT -->
+                <label for="descricao" class="mt-2">Descrição do Stencil</label>
+                <input type="text" name="descricao" required  placeholder="Nome do produto" class="form-control">
+                
+                <label for="modificacao" class="mt-2">Modificação</label>
+                <input type="text" name="modificacao" required  placeholder="Modificação" class="form-control">
+
+                <div class="row mt-2">
+                    <div class="col">
+                        <label for="codigoDoPrograma " >Código do programa</label>
+                        <input type="text" name="codigoDoPrograma" required  placeholder="00" class="form-control" maxlength="2" pattern="^[0-9]{2}$">
+                    </div>
+                    <div class="col">
+                        <label for="lado" >Lado da placa</label>
+                        <input type="text" name="lado" required  placeholder="A/B" class="form-control" maxlength="1" pattern="^[AB]$">
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col">
+                        <label for="revisaoSerie" ">Revisão/Série</label>
+                        <input type="text" name="revisaoSerie" required  placeholder="00" class="form-control" maxlength="2" pattern="^[0-9]{2}$">        
+                    </div>
+                    <div class="col">
+                        <label for="mf" ">MF</label>
+                        <input type="text" name="mf" required  placeholder="00000" class="form-control" maxlength="5" pattern="^[0-9]{5}$">        
+                    </div>
+                    <div class="col">
+                        <label for="stencilId" ">ID</label>
+                        <input type="text" name="stencilId" required  placeholder="0000" class="form-control" maxlength="4" pattern="^[0-9]{4}$">        
+                    </div>
+                </div><!-- INPUT TEXT -->
+
+                <!-- RADIO BUTTON -->
+                <!-- <div class="row">
+                    <div class="col">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="salvar" name="salvar" id="salvar" checked>
+                            <label class="form-check-label" for="salvar">Salvar Dados</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="etiqueta" name="etiqueta" id="etiqueta">
+                            <label class="form-check-label" for="etiqueta">Gerar Etiqueta</label>
+                        </div>
+                    </div>                    
+                </div> -->
+                <!-- RADIO BUTTON -->        
+
+                <button type="submit" class="btn btn-primary mt-3 form-control"> Cadastrar </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/footer'); %>
