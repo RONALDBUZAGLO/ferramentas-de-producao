@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const rotasControler = require('./rotas/Controller');
+const rotasControllerMenu = require('./rotas/controllerMenu');
 const connection = require('./database/database');
 const Dados = require('./database/Dados');
 const session = require('express-session');
@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //IMPORTAÇÃO DE ROTAS
-app.use("/",rotasControler);
+app.use("/",rotasControllerMenu);
 
 
 //ROTAS
@@ -44,9 +44,9 @@ app.get("/",(req,res)=>{
     res.render('pages/menu');
 });
 
-app.get("/",(req,res)=>{
-    res.render('pages/home');
-});
+// app.get("/",(req,res)=>{
+//     res.render('pages/conversorQR');
+// });
 
 const port = 3000;
 app.listen(port,()=>{
