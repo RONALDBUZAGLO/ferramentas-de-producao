@@ -1,12 +1,21 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const controllerMenu = require('./rotas/controllerMenu');
-const controllerStencil = require('./rotas/controllerStencil');
+
+const controllerMenu = require('./models/menu/controllerMenu');
+const controllerHistorico = require('./models/historicos/controllerHistorico');
+const controllerMaquina = require('./models/maquinas/controllerMaquina');
+const controllerPeca = require('./models/peca/controllerPeca');
+const controllerStencil = require('./models/stencils/controllerStencil');
+
 const connection = require('./database/database');
-const Dados = require('./database/Dados');
 const session = require('express-session');
 const flash = require('connect-flash');
+
+const Historico = require('./models/historicos/Historico');
+const Maquina = require('./models/maquinas/Maquina');
+const Peca = require('./models/peca/Peca');
+const Stencil = require('./models/stencils/Stencil');
 
 //CONFIGURAÇÃO DATABASE
 connection.authenticate().then(()=>{
@@ -39,15 +48,15 @@ app.use(bodyParser.json());
 //IMPORTAÇÃO DE ROTAS
 app.use("/",controllerMenu);
 app.use("/",controllerStencil);
+app.use("/",controllerMaquina);
+app.use("/",controllerHistorico);
+app.use("/",controllerPeca);
 
 //ROTAS
 app.get("/",(req,res)=>{
     res.render('pages/menu');
 });
 
-// app.get("/",(req,res)=>{
-//     res.render('pages/conversorQR');
-// });
 
 const port = 3000;
 app.listen(port,()=>{

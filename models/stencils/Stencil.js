@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const connection = require('./database');
+const connection = require('../../database/database');
 
-const Dados = connection.define('dados',{
+const Stencil = connection.define('stencil',{
     codigoDoPrograma:{
         type: Sequelize.STRING,
         allowNull: false,
@@ -32,6 +32,6 @@ const Dados = connection.define('dados',{
     },  
 });
 
-// Dados.sync({force:false}).then(()=>{});
+Stencil.sync({force:false}).then(()=>{});
 
-module.exports = Dados;
+module.exports = Stencil;

@@ -1,15 +1,16 @@
-<%- include('../../partials/header'); %>
-<%- include('../../partials/navbar'); %>
+<%- include('../../../partials/header'); %>
+<%- include('../../../partials/navbar'); %>
 
 <div class="container mt-5">
     
     <div class="card ">
+        
         <div class="card-header ">
             <h1>Cadastro de Stencil</h1>
         </div>
         
         <div class="card-body">
-            <form action="/gerarCode" method="POST" >
+            <form action="/salvar-stencil" method="POST" >
                 
                 <!-- INPUT TEXT -->
                 <label for="descricao" class="mt-2">Descrição do Stencil</label>
@@ -68,4 +69,4 @@
     </div>
 </div>
 
-<%- include('../../partials/footer'); %>
+<%- include('../../../partials/footer'); %>
