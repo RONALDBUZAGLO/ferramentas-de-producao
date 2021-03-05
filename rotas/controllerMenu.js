@@ -73,21 +73,13 @@ router.post("/gerarCode",(req,res)=>{
             res.send("Empty data!");
         }
 
-        qr.toDataURL(concatenado,{ errorCorrectionLevel: 'H', version: 7 },(err,src)=>{
+        qr.toDataURL(concatenado,{ errorCorrectionLevel: 'H', version: 10 },(err,src)=>{
         
             if (err) {
                 res.send("Aconteceu um erro: " + err + "\nProcure suporte de programação!");
             }
-            req.flash('message','save success');
-            res.render("pages/saida",{
-                message: req.flash('message'),
-                src,
-                codigoDoPrograma,
-                lado,
-                revisaoSerie,
-                stencilId,
-                mf,
-            });
+            
+            res.redirect("/stencils-cadastrados");
 
         });
 

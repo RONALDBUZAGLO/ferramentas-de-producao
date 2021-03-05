@@ -1,8 +1,14 @@
 <%- include('../../../partials/header'); %>
 <%- include('../../../partials/navbar'); %>
 
+<%if(message.length > 0){%>
+    <div class="alert alert-success">
+        <%= message %>
+    </div>
+<%}%>
+
 <div class="container">
-    <h1>Stencils Cadastrados</h1>
+    <h1>Lista de Stencils</h1>
 </div>
 
 <%- include('../../../partials/footer'); %>

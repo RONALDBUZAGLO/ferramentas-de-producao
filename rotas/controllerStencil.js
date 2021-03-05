@@ -4,7 +4,8 @@ const router = express.Router();
 
 //ROTAS STENCIL
 router.get("/stencils-cadastrados",(req,res)=>{
-    res.render('pages/menu/stencils-cadastrados');
+    req.flash('message','Stencil cadastrado com sucesso!');
+    res.render('pages/menu/stencil/stencils-cadastrados',{message: req.flash('message')});
 });
 
 
