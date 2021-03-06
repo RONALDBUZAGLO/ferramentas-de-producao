@@ -54,7 +54,8 @@ app.use("/",controllerPeca);
 
 //ROTAS
 app.get("/",(req,res)=>{
-    res.render('pages/menu');
+    
+    res.render('pages/menu',{titulo:'Caixa de Ferramentas'});
 });
 
 
