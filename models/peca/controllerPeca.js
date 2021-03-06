@@ -9,6 +9,7 @@ router.get("/ROTA DE PECA",(req,res)=>{
         console.log(pecas);
         req.flash('message','Stencil cadastrado com sucesso!');
         res.render('VIEW DE PECA',{
+            titulo:'Nome da página',
             message: req.flash('message'),
             pecas: pecas,
         });

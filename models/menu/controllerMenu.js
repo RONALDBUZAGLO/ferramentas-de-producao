@@ -6,19 +6,27 @@ const qr = require("qrcode");
 
 //ROTAS MENU
 router.get("/cadastro-de-stencil",(req,res)=>{
-    res.render('pages/menu/stencil/cadastro-de-stencil');
+    res.render('pages/menu/stencil/cadastro-de-stencil',{
+        titulo:'Cadastro de Stencil'
+    });
 });
 
 router.get("/historico-de-produto",(req,res)=>{
-    res.render("pages/menu/historico/historico-de-produto");
+    res.render("pages/menu/historico/historico-de-produto",{
+        titulo:'Histórico de produto'
+    });
 });
 
 router.get("/estoque-de-pecas",(req,res)=>{
-    res.render("pages/menu/pecas/estoque-de-pecas");
+    res.render("pages/menu/pecas/estoque-de-pecas",{
+        titulo:'Estoque de Peças'
+    });
 });
 
 router.get("/maquinas-e-manutencoes",(req,res)=>{
-    res.render("pages/menu/maquinas/maquinas-e-manutencoes");
+    res.render("pages/menu/maquinas/maquinas-e-manutencoes",{
+        titulo:'Máquinas e Manutenções'
+    });
 });//ROTAS MENU
 
 

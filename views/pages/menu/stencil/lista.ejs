@@ -1,11 +1,11 @@
 <%- include('../../../partials/header'); %>
 <%- include('../../../partials/navbar'); %>
 
-<%if(message.length > 0){%>
+<% if(!!message){ %>
     <div class="alert alert-success">
         <%= message %>
     </div>
-<%}%>
+<% } %>
 
 <div class="container">
     <h1>Lista de Stencils</h1>

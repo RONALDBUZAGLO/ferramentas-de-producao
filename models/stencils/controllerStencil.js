@@ -61,6 +61,7 @@ router.get("/stencils-cadastrados",(req,res)=>{
         console.log(stencils);
         req.flash('message','Stencil cadastrado com sucesso!');
         res.render('pages/menu/stencil/lista',{
+            titulo:'Nome da página',
             message: req.flash('message'),
             stencils: stencils,
         });

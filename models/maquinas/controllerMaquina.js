@@ -9,6 +9,7 @@ router.get("/ROTA DE MÁQUINA",(req,res)=>{
         console.log(maquinas);
         req.flash('message','Maquina cadastrada com sucesso!');
         res.render('PÁGINA DE MÁQUINA',{
+            titulo:'Nome da página',
             message: req.flash('message'),
             masquinas: maquinas,
         });
