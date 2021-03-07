@@ -5,8 +5,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 const cookieParser = require("cookie-parser");
 const path = require('path')
-var favicon = require('serve-favicon')
-
+const favicon = require('serve-favicon')
 
 const controllerMenu = require('./models/menu/controllerMenu');
 const controllerHistorico = require('./models/historicos/controllerHistorico');
@@ -16,10 +15,6 @@ const controllerStencil = require('./models/stencils/controllerStencil');
 
 const connection = require('./database/database');
 
-const Historico = require('./models/historicos/Historico');
-const Maquina = require('./models/maquinas/Maquina');
-const Peca = require('./models/peca/Peca');
-const Stencil = require('./models/stencils/Stencil');
 
 //CONFIGURAÇÃO DATABASE
 connection.authenticate().then(()=>{
@@ -50,13 +45,11 @@ app.use(session({
 app.use(flash());
 
 
-
 //CONFIGURAÇÃO DA PASTA DE ARQUIVOS ESTÁTICOS
 app.use(express.static('public'));
 
+//CONFIGURAÇÃO DO FAVICON
 app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')))
-
-
 
 //IMPORTAÇÃO DE ROTAS
 app.use("/",controllerMenu);
@@ -67,8 +60,7 @@ app.use("/",controllerPeca);
 
 //ROTAS
 app.get("/",(req,res)=>{
-    
-    res.render('pages/menu',{titulo:'Caixa de Ferramentas'});
+    res.render('pages/menuHome',{titulo:'Caixa de Ferramentas'});
 });
 
 

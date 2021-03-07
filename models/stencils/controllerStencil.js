@@ -4,8 +4,16 @@ const Stencil = require('./Stencil');
 
 
 //ROTAS STENCIL
+
+router.get("/stencil/cadastro",(req,res)=>{
+    res.render("pages/menu/stencil/cadastro",{
+        titulo:'Stencil'
+    });
+});
+
+
 //GERA QR CODE PARA A ROTA CADASTRO DE STENCIL
-router.post("/salvar-stencil",(req,res)=>{
+router.post("/stencil/salvar",(req,res)=>{
 
     const codigoDoPrograma = req.body.codigoDoPrograma;
     const lado = req.body.lado;
@@ -45,24 +53,25 @@ router.post("/salvar-stencil",(req,res)=>{
             //     res.send("Aconteceu um erro: " + err + "\nProcure suporte de programação!");
             // }
             req.flash('message','Stencil cadastrado com sucesso!');
-            res.redirect("/stencils-cadastrados");
+            res.redirect("/stencil/lista");
 
         // });
 
     }).catch((err)=>{
-        console.log("---------------------------------erro ao salvar dados: "+err);
-        res.redirect('/stencils-cadastrados');
+        console.log("----erro ao salvar dados: "+err+" -----");
+        req.flash('message','Erro ao cadastrar!');
+        res.redirect('/stencil/lista');
     });
 
 });
 
-router.get("/stencils-cadastrados",(req,res)=>{
+router.get("/stencil/lista",(req,res)=>{
     Stencil.findAll({raw: true,order:[['id','DESC']]}).then((stencils)=>{
         
         const message = req.flash("message");
        
         res.render('pages/menu/stencil/lista',{
-            titulo:'Nome da página',
+            titulo:'Lista',
             message: message,
             stencils: stencils,
         });

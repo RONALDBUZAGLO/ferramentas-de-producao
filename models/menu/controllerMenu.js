@@ -5,25 +5,25 @@ const qr = require("qrcode");
 
 
 //ROTAS MENU
-router.get("/cadastro-de-stencil",(req,res)=>{
-    res.render('pages/menu/stencil/cadastro-de-stencil',{
+router.get("/stencil",(req,res)=>{
+    res.render('pages/menu/stencil/menuStencil',{
         titulo:'Cadastro de Stencil'
     });
 });
 
-router.get("/historico-de-produto",(req,res)=>{
+router.get("/historico",(req,res)=>{
     res.render("pages/menu/historico/historico-de-produto",{
         titulo:'Histórico de produto'
     });
 });
 
-router.get("/estoque-de-pecas",(req,res)=>{
+router.get("/estoque",(req,res)=>{
     res.render("pages/menu/pecas/estoque-de-pecas",{
         titulo:'Estoque de Peças'
     });
 });
 
-router.get("/maquinas-e-manutencoes",(req,res)=>{
+router.get("/maquina",(req,res)=>{
     res.render("pages/menu/maquinas/maquinas-e-manutencoes",{
         titulo:'Máquinas e Manutenções'
     });
