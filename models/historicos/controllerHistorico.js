@@ -9,7 +9,7 @@ router.get("/ROTA DE HISTORICO",(req,res)=>{
         // console.log(historicos);
         req.flash('message','Historico cadastrado com sucesso!');
         res.render('ROTA DE HISTORICO',{
-            titulo:'Nome da página',
+            titulo:'N',
             message: req.flash('message'),
             historicos: historicos,
         });

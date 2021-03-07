@@ -1,29 +1,47 @@
 <%- include('../../../partials/header'); %>
 <%- include('../../../partials/navbar'); %>
 
-<% if(!!message){ %>
-    <div class="alert alert-success">
-        <%= message %>
+<% if(message.length != 0){ %>
+          
+    <div class="container mt-2">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <p><%= message %></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     </div>
+
 <% } %>
 
-<div class="container">
+<div class="container mt-3">
+
     <h1>Lista de Stencils</h1>
+
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Código</th>
+            <th scope="col">Id</th>
+          </tr>
+        </thead>
 
     <% stencils.forEach(stencil => { %>
         
-        <p><%=stencil.id%></p>
-        <p><%=stencil.codigoDoPrograma%></p>
-        <p><%=stencil.lado%></p>
-        <p><%=stencil.revisaoSerie%></p>
-        <p><%=stencil.mf%></p>
-        <p><%=stencil.stencilId%></p>
-        <p><%=stencil.descricao%></p>
-        <p><%=stencil.modificacao%></p>
-        <hr>
+        <tbody>
+            <tr>
+              <th scope="row"><%= stencil.id %></th>
+              <td><%= stencil.descricao %></td>
+              <td><%= stencil.codigoDoPrograma %></td>
+              <td><%= stencil.stencilId %></td>
+            </tr>
+        </tbody>
+
     
     <% }) %>
 
 </div>
+
+
 
 <%- include('../../../partials/footer'); %>

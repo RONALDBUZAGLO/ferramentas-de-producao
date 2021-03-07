@@ -39,18 +39,18 @@ router.post("/salvar-stencil",(req,res)=>{
         modificacao,
     }).then(()=>{
 
-        qr.toDataURL(concatenado,{ errorCorrectionLevel: 'H', version: 10 },(err,src)=>{
+        // qr.toDataURL(concatenado,{ errorCorrectionLevel: 'H', version: 10 },(err,src)=>{
         
-            if (err) {
-                res.send("Aconteceu um erro: " + err + "\nProcure suporte de programação!");
-            }
-            
+            // if (err) {
+            //     res.send("Aconteceu um erro: " + err + "\nProcure suporte de programação!");
+            // }
+            req.flash('message','Stencil cadastrado com sucesso!');
             res.redirect("/stencils-cadastrados");
 
-        });
+        // });
 
     }).catch((err)=>{
-        console.log("erro ao salvar dados: "+err);
+        console.log("---------------------------------erro ao salvar dados: "+err);
         res.redirect('/stencils-cadastrados');
     });
 
@@ -58,11 +58,12 @@ router.post("/salvar-stencil",(req,res)=>{
 
 router.get("/stencils-cadastrados",(req,res)=>{
     Stencil.findAll({raw: true,order:[['id','DESC']]}).then((stencils)=>{
-        console.log(stencils);
-        req.flash('message','Stencil cadastrado com sucesso!');
+        
+        const message = req.flash("message");
+       
         res.render('pages/menu/stencil/lista',{
             titulo:'Nome da página',
-            message: req.flash('message'),
+            message: message,
             stencils: stencils,
         });
     })
