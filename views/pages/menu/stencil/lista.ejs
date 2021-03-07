@@ -41,8 +41,10 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Descrição</th>
-            <th scope="col">Código</th>
-            <th scope="col">Id</th>
+            <th scope="col">Programa</th>
+            <th scope="col">ID</th>
+            <th scope="col">MF</th>
+            <th scope="col">Modificação</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -54,8 +56,10 @@
             <tr>
               <th scope="row"><%= stencil.id %></th>
               <td><%= stencil.descricao %></td>
-              <td><%= stencil.codigoDoPrograma %></td>
+              <td><%= stencil.codigoDoPrograma %>XX<%=stencil.lado%><%=stencil.revisaoSerie%>XX</td>
               <td><%= stencil.stencilId %></td>
+              <td><%= stencil.mf %></td>
+              <td><%= stencil.modificacao %></td>
 
               <form action="/stencil/lista/deletar" method="POST">
                 <input type="hidden" name="id" value="<%= stencil.id %>">
