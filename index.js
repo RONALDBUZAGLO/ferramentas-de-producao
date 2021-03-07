@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const session = require('express-session');
+const flash = require('express-flash');
+const cookieParser = require("cookie-parser");
+const path = require('path')
+var favicon = require('serve-favicon')
+
 
 const controllerMenu = require('./models/menu/controllerMenu');
 const controllerHistorico = require('./models/historicos/controllerHistorico');
@@ -9,8 +15,6 @@ const controllerPeca = require('./models/peca/controllerPeca');
 const controllerStencil = require('./models/stencils/controllerStencil');
 
 const connection = require('./database/database');
-const session = require('express-session');
-const flash = require('connect-flash');
 
 const Historico = require('./models/historicos/Historico');
 const Maquina = require('./models/maquinas/Maquina');
@@ -19,10 +23,20 @@ const Stencil = require('./models/stencils/Stencil');
 
 //CONFIGURAÇÃO DATABASE
 connection.authenticate().then(()=>{
-        console.log("Conexão feita com o banco de dados!");
-    }).catch((msgError)=>{
-        console.log(" Houve um erro: " + msgError);
-    });
+    console.log("Conexão feita com o banco de dados!");
+}).catch((msgError)=>{
+    console.log(" Houve um erro: " + msgError);
+});
+
+//CONFIGURAÇÃO DA VIEW ENGINE EJS
+app.set("view engine","ejs");
+
+//CONFIGURAÇÃO DO BODY-PARSER
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+
+//CONFIGURAÇÃO DO COOKIE-PARSER
+app.use(cookieParser("asdlkjasdlj"))
 
 //CONFIGURAÇÃO DO SESSION
 app.use(session({
@@ -35,15 +49,14 @@ app.use(session({
 //CONFIGURAÇÃO DO FLASH
 app.use(flash());
 
-//CONFIGURAÇÃO DA VIEW ENGINE EJS
-app.set("view engine","ejs");
+
 
 //CONFIGURAÇÃO DA PASTA DE ARQUIVOS ESTÁTICOS
 app.use(express.static('public'));
 
-//CONFIGURAÇÃO DO BODY-PARSER
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')))
+
+
 
 //IMPORTAÇÃO DE ROTAS
 app.use("/",controllerMenu);
