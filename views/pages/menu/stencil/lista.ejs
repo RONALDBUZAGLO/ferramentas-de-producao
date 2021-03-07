@@ -11,6 +11,26 @@
     </div>
 
 <% } %>
+<% if(msg_erro.length != 0){ %>
+          
+    <div class="container mt-2">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <p><%= msg_erro %></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+<% } %>
+<% if(msg_success.length != 0){ %>
+          
+    <div class="container mt-2">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <p><%= msg_success %></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+<% } %>
 
 <div class="container mt-3">
 
@@ -23,6 +43,8 @@
             <th scope="col">Descrição</th>
             <th scope="col">Código</th>
             <th scope="col">Id</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
 
@@ -34,6 +56,17 @@
               <td><%= stencil.descricao %></td>
               <td><%= stencil.codigoDoPrograma %></td>
               <td><%= stencil.stencilId %></td>
+
+              <form action="/stencil/lista/deletar" method="POST">
+                <input type="hidden" name="id" value="<%= stencil.id %>">
+                <input type="hidden" name="descricao" value="<%= stencil.descricao %>">
+                <td><button type="submit" class="btn btn-danger">Deletar</button></td>
+              </form>
+              <form action="/stencil/lista/editar" method="POST">
+                <td><button type="submit" class="btn btn-warning">Editar</button></td>
+              </form>
+              
+              
             </tr>
         </tbody>
 

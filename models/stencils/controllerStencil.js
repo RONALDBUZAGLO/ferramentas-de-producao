@@ -68,15 +68,42 @@ router.post("/stencil/salvar",(req,res)=>{
 router.get("/stencil/lista",(req,res)=>{
     Stencil.findAll({raw: true,order:[['id','DESC']]}).then((stencils)=>{
         
-        const message = req.flash("message");
+        var message = req.flash("message");
+        var msg_erro = req.flash("msg_erro");
+        var msg_success = req.flash("msg_success");
        
+        
         res.render('pages/menu/stencil/lista',{
             titulo:'Lista',
             message: message,
+            msg_erro: msg_erro,
+            msg_success: msg_success,
             stencils: stencils,
         });
-    })
+    });
+});
 
+router.post("/stencil/lista/deletar",(req,res)=>{
+
+    const id = req.body.id;
+    const descricao = req.body.descricao;
+    
+    if(id != undefined && !isNaN(id)){
+        
+            Stencil.destroy({
+                where:{
+                    id:id
+                }
+            }).then(()=>{
+                req.flash("msg_success",`Stencil ${descricao} Foi deletado`);
+                res.redirect("/stencil/lista");
+            })
+        
+    }else{
+        req.flash("msg_erro","Não foi possível deletar");
+        res.redirect('/stencil/lista');
+
+    }
 });
 
 
