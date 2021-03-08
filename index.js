@@ -5,8 +5,8 @@ const bodyParser = require("body-parser");
 const session = require('express-session');
 const flash = require('express-flash');
 const cookieParser = require("cookie-parser");
-const path = require('path')
-const favicon = require('serve-favicon')
+const path = require('path');
+const favicon = require('serve-favicon');
 
 const controllerMenu = require('./models/menu/controllerMenu');
 const controllerHistorico = require('./models/historicos/controllerHistorico');
@@ -21,7 +21,7 @@ const controllerStencil = require('./models/stencils/controllerStencil');
 connection.authenticate().then(()=>{
     console.log("Conexão feita com o banco de dados!");
 }).catch((msgError)=>{
-    console.log(" Houve um erro: " + msgError);
+    console.log(" Houve um erro ao autenticar banco de dados: " + msgError);
 });
 
 //CONFIGURAÇÃO DA VIEW ENGINE EJS

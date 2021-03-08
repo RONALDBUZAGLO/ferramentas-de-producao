@@ -56,7 +56,15 @@ body{
     color: red;
     background: red;
 }
+
 a{
     text-decoration: none;
     color: rgb(53, 53, 53);
 }
+/* LIMITADOR PARA CAMPO MODIFICAÇÃO DA LISTA STENCIL */
+.limitador {
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
