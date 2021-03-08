@@ -59,17 +59,22 @@
               <td><%= stencil.codigoDoPrograma %>XX<%=stencil.lado%><%=stencil.revisaoSerie%>XX</td>
               <td><%= stencil.stencilId %></td>
               <td><%= stencil.mf %></td>
-              <td><%= stencil.modificacao %></td>
+              <td><p class="limitador"><%= stencil.modificacao %></p></td>
 
-              <form action="/stencil/lista/deletar" method="POST">
-                <input type="hidden" name="id" value="<%= stencil.id %>">
-                <input type="hidden" name="descricao" value="<%= stencil.descricao %>">
-                <td><button type="submit" class="btn btn-danger">Deletar</button></td>
-              </form>
               <form action="/stencil/lista/editar" method="POST">
                 <td><button type="submit" class="btn btn-warning">Editar</button></td>
               </form>
               
+              <form action="/stencil/lista/deletar" method="POST" onsubmit="deleteConfirm(event, this)">
+                
+                <input type="hidden" name="id" value="<%= stencil.id %>">
+                <input type="hidden" name="descricao" value="<%= stencil.descricao %>">
+                
+                <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Deletar</button></td>
+
+                <%- include('../../../partials/modal'); %>
+
+              </form>
               
             </tr>
         </tbody>
