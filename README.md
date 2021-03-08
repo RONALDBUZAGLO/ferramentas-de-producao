@@ -12,7 +12,7 @@
 
 * [x] Incluir o restante das informações de stencil na listagem
 
-* [x] Criar edição de stencils cadastrados
+* [ ] Criar edição de stencils cadastrados
 
 * [x] Criar exclusão de stencils cadastrados
 
@@ -21,3 +21,5 @@
 * [ ] Criar sistema de ordenação (por qualquer campo)
 
 * [ ] Tornar os menus do navbar dinâmicos
+
+* [x] Modal pedindo confirmação para excluir arquivo
