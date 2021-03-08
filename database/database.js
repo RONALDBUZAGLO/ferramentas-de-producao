@@ -11,7 +11,7 @@ const SSLMODE = process.env.SSLMODE;
 const AMBIENTE = process.env.AMBIENTE;
 
 if(AMBIENTE == "desenvolvimento"){
-
+    
     const connection = new Sequelize(DB_NAME,DB_USER_NAME,DB_PASSWORD,{
         host: DB_HOST,
         dialect: 'mysql',

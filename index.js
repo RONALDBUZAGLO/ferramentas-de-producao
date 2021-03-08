@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const connection = require('./database/database');
 const bodyParser = require("body-parser");
 const session = require('express-session');
 const flash = require('express-flash');
@@ -13,7 +14,7 @@ const controllerMaquina = require('./models/maquinas/controllerMaquina');
 const controllerPeca = require('./models/peca/controllerPeca');
 const controllerStencil = require('./models/stencils/controllerStencil');
 
-const connection = require('./database/database');
+
 
 
 //CONFIGURAÇÃO DATABASE

@@ -20,6 +20,6 @@ const Maquina = connection.define('maquina',{
     }
 });
 
-Maquina.sync({force:false}).then(()=>{});
+// Maquina.sync({force:false}).then(()=>{});
 
 module.exports = Maquina;

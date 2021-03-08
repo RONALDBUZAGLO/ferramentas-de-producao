@@ -32,6 +32,6 @@ const Stencil = connection.define('stencil',{
     },  
 });
 
-Stencil.sync({force:false}).then(()=>{});
+// Stencil.sync({force:false}).then(()=>{});
 
 module.exports = Stencil;
