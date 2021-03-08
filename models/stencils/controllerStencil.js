@@ -106,5 +106,24 @@ router.post("/stencil/lista/deletar",(req,res)=>{
     }
 });
 
+router.get("/stencil/busca",(req,res)=>{
+    res.render("pages/menu/stencil/busca",{titulo:"Buscar",message:"busca"});
+});
+
+router.get("/stencil/edit/:id",(req,res)=>{
+    var id = req.params.id;
+    Stencil.findByPk(id).then((stencil)=>{
+        if (stencil != undefined) {
+            res.render("pages/menu/stencil/edit",{stencil:stencil});
+        }else{
+            req.flash("msg_erro","algum erro")
+            res.redirect("/stencil")
+        }
+    }).catch(erro=>{
+        req.flash("msg_erro","algum erro")
+        res.redirect("/stencil")
+    })
+} )
+
 
 module.exports = router;

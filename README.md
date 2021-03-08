@@ -1,6 +1,6 @@
 # Ferramentas de Produção
 
-* [ ] Criar um tittle dinâmico de acordo com a página da ferramenta
+* [x] Criar um tittle dinâmico de acordo com a página da ferramenta
 
 * [x] Incluir favicon
 
@@ -23,3 +23,9 @@
 * [ ] Tornar os menus do navbar dinâmicos
 
 * [x] Modal pedindo confirmação para excluir arquivo
+
+* [ ] Remover os botões de Editar e Deletar da listagem
+
+* [ ] Tranformar cada elemento da lista em link para exibir detalhes e observações e as opções de Deletar e Excluir
+
+* [ ] Criar validação para impedir que seja cadastrado duas vezes o mesmo stencil
