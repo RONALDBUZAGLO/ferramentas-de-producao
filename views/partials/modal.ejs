@@ -9,12 +9,17 @@
             </div>
 
             <div class="modal-body">
-                Certeza que deseja excluir o Stencil 
+                Certeza que deseja excluir o Stencil "<%= descricao %>" de ID "<%= id %>"
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="submit" id="teste" class="btn btn-danger">Deletar</button>
+                <form action="/stencil/lista/deletar" method="post">
+                    <input type="hidden" name="<%= id %>">
+                    <input type="hidden" name="<%= descricao %>">
+                    <button type="submit" id="modalDel" class="btn btn-danger">Deletar</button>
+                </form>
+                
             </div>
             
         </div>

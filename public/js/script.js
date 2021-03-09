@@ -3,7 +3,7 @@ function deleteConfirm(event, form) {
 
     event.preventDefault();
 
-    const del = document.getElementById("teste")
+    const del = document.getElementById("modalDel")
     
     del.addEventListener("click",()=>{
         form.submit();

@@ -66,13 +66,13 @@ router.post("/stencil/salvar",(req,res)=>{
 });
 
 router.get("/stencil/lista",(req,res)=>{
+
     Stencil.findAll({raw: true,order:[['id','DESC']]}).then((stencils)=>{
         
         var message = req.flash("message");
         var msg_erro = req.flash("msg_erro");
         var msg_success = req.flash("msg_success");
-       
-        
+           
         res.render('pages/menu/stencil/lista',{
             titulo:'Lista',
             message: message,
@@ -82,6 +82,16 @@ router.get("/stencil/lista",(req,res)=>{
         });
     });
 });
+
+// router.post("/stencil/lista/modal",(req,res)=>{
+
+//     const { id , descricao } = req.body; 
+
+//     res.render("partials/modal",{
+//         id:id,
+//         descricao:descricao
+//     });
+// })
 
 router.post("/stencil/lista/deletar",(req,res)=>{
 
@@ -95,7 +105,7 @@ router.post("/stencil/lista/deletar",(req,res)=>{
                     id:id
                 }
             }).then(()=>{
-                req.flash("msg_success",`Stencil ${descricao} Foi deletado`);
+                req.flash("msg_success",`Stencil Descrição: ${descricao} e ID ${id} Foi deletado`);
                 res.redirect("/stencil/lista");
             })
         
@@ -106,15 +116,22 @@ router.post("/stencil/lista/deletar",(req,res)=>{
     }
 });
 
+
+
 router.get("/stencil/busca",(req,res)=>{
     res.render("pages/menu/stencil/busca",{titulo:"Buscar",message:"busca"});
 });
 
-router.get("/stencil/edit/:id",(req,res)=>{
+
+
+
+router.get("/stencil/editar/:id",(req,res)=>{
+
     var id = req.params.id;
+
     Stencil.findByPk(id).then((stencil)=>{
         if (stencil != undefined) {
-            res.render("pages/menu/stencil/edit",{stencil:stencil});
+            res.render("pages/menu/stencil/editar",{titulo:"Editar Stencil",stencil:stencil});
         }else{
             req.flash("msg_erro","algum erro")
             res.redirect("/stencil")

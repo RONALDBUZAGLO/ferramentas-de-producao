@@ -51,33 +51,18 @@
         </thead>
 
     <% stencils.forEach(stencil => { %>
-        
+    
         <tbody>
-            <tr>
-              <th scope="row"><%= stencil.id %></th>
-              <td><%= stencil.descricao %></td>
-              <td><%= stencil.codigoDoPrograma %>XX<%=stencil.lado%><%=stencil.revisaoSerie%>XX</td>
-              <td><%= stencil.stencilId %></td>
-              <td><%= stencil.mf %></td>
-              <td><p class="limitador"><%= stencil.modificacao %></p></td>
-
-              <form action="/stencil/lista/editar" method="POST">
-                <td><button type="submit" class="btn btn-warning">Editar</button></td>
-              </form>
-              
-              <form action="/stencil/lista/deletar" method="POST" onsubmit="deleteConfirm(event, this)">
-                
-                <input type="hidden" name="id" value="<%= stencil.id %>">
-                <input type="hidden" name="descricao" value="<%= stencil.descricao %>">
-                
-                <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Deletar</button></td>
-
-                <%- include('../../../partials/modal'); %>
-
-              </form>
-              
-            </tr>
+          <tr>
+            <th scope="row"><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.id %></a></th>
+            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.descricao %></a></td>
+            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.codigoDoPrograma %>XX<%=stencil.lado%><%=stencil.revisaoSerie%>XX</a></td>
+            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.stencilId %></a></td>
+            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.mf %></a></td>
+            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.modificacao %></a></td>
+          </tr>
         </tbody>
+    
 
     <% }) %>
 
