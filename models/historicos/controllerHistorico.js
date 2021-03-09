@@ -3,19 +3,31 @@ const router = express.Router();
 const Historico = require('./Historico');
 
 
-//ROTAS STENCIL
-router.get("/ROTA DE HISTORICO",(req,res)=>{
-    Historico.findAll({raw: true,order:[['id','DESC']]}).then((historicos)=>{
-        // console.log(historicos);
-        req.flash('message','Historico cadastrado com sucesso!');
-        res.render('ROTA DE HISTORICO',{
-            titulo:'N',
-            message: req.flash('message'),
-            historicos: historicos,
-        });
-    })
+//ROTAS HISTÓRICO
+router.get("/historico/cadastro",(req,res)=>{
+        
+    res.render('pages/menu/historico/cadastroHistorico',{
+        titulo:'Historico - Cadastro',
+    });
 
 });
 
+
+router.get("/historico/lista",(req,res)=>{
+        
+    res.render('pages/menu/historico/listaHistorico',{
+        titulo:'Historico - Lista',
+    });
+
+});
+
+
+router.get("/historico/busca",(req,res)=>{
+        
+    res.render('pages/menu/historico/buscaHistorico',{
+        titulo:'Historico - Busca',
+    });
+
+});
 
 module.exports = router;

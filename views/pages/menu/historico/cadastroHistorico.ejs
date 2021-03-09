@@ -1,0 +1,72 @@
+<%- include('../../../partials/header'); %>
+<%- include('../../../partials/navbar'); %>
+
+<div class="container mt-5">
+    
+    <div class="card ">
+        
+        <div class="card-header ">
+            <h1>Nova Ocorrência</h1>
+        </div>
+        
+        <div class="card-body">
+            <form action="/stencil/salvar" method="POST" >
+                
+                <!-- INPUT TEXT -->
+                <label for="descricao" class="mt-2">Modelo</label>
+                <input type="text" name="descricao" required  placeholder="Selecione o modelo" class="form-control">
+                
+                <label for="modificacao" class="mt-2">Tipo de defeito</label>
+                <input type="text" name="modificacao" required  placeholder="Selecione o tipo de defeito" class="form-control">
+
+                <div class="row mt-2">
+                    <div class="col">
+                        <label for="codigoDoPrograma" >Origem do defeito</label>
+                        <input type="text" name="codigoDoPrograma" required  class="form-control" pattern="">
+                    </div>
+                    <div class="col">
+                        <label for="lado" >Lado da placa</label>
+                        <input type="text" name="lado" required  placeholder="A/B" class="form-control" maxlength="1" pattern="^[AB]$">
+                    </div>
+                </div>
+
+                
+                    <div class="col">
+                        <label for="revisaoSerie" ">Comentários</label>
+                        <input type="text" name="revisaoSerie" required class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="mf" ">Ações</label>
+                        <input type="text" name="mf" required  class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="stencilId" ">Possíveis Causas</label>
+                        <input type="text" name="stencilId" required  class="form-control">        
+                    </div>
+                <!-- INPUT TEXT -->
+
+                <!-- RADIO BUTTON -->
+                <!-- <div class="row">
+                    <div class="col">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="salvar" name="salvar" id="salvar" checked>
+                            <label class="form-check-label" for="salvar">Salvar Dados</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="etiqueta" name="etiqueta" id="etiqueta">
+                            <label class="form-check-label" for="etiqueta">Gerar Etiqueta</label>
+                        </div>
+                    </div>                    
+                </div> -->
+                <!-- RADIO BUTTON -->        
+
+                <button type="submit" class="btn btn-primary mt-3 form-control"> Cadastrar </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../../partials/footer'); %>
