@@ -45,7 +45,6 @@ app.use(session({
 //CONFIGURAÇÃO DO FLASH
 app.use(flash());
 
-
 //CONFIGURAÇÃO DA PASTA DE ARQUIVOS ESTÁTICOS
 app.use(express.static('public'));
 
@@ -61,7 +60,11 @@ app.use("/",controllerPeca);
 
 //ROTAS
 app.get("/",(req,res)=>{
-    res.render('pages/menuHome',{titulo:'Caixa de Ferramentas'});
+    res.render('pages/menuHome',{
+        titulo:'Caixa de Ferramentas',
+        menus: ['Historico','Stencil','Estoque','Máquina'],
+        message: "",
+    });
 });
 
 

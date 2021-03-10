@@ -5,29 +5,32 @@ const qr = require("qrcode");
 
 
 //ROTAS MENU
-router.get("/stencil",(req,res)=>{
-    res.render('pages/menu/stencil/menuStencil',{
-        titulo:'Stencil'
-    });
-});
-
 router.get("/historico",(req,res)=>{
     const message = req.flash("message");
     res.render("pages/menu/historico/menuHistorico",{
         titulo:'Histórico',
-        message:message
+        message:message,
+    });
+});
+
+router.get("/stencil",(req,res)=>{
+    res.render('pages/menu/stencil/menuStencil',{
+        titulo:'Stencil',
+        menus: ['Cadastro','Lista','Busca'],
     });
 });
 
 router.get("/estoque",(req,res)=>{
     res.render("pages/menu/pecas/estoque-de-pecas",{
-        titulo:'Estoque'
+        titulo:'Estoque',
+        menus: ['implementar'],
     });
 });
 
 router.get("/maquina",(req,res)=>{
     res.render("pages/menu/maquinas/maquinas-e-manutencoes",{
-        titulo:'Máquinas'
+        titulo:'Máquinas',
+        menus: ['implementar'],
     });
 });//ROTAS MENU
 

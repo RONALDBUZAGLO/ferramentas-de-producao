@@ -1,0 +1,45 @@
+<%- include('../../../../partials/header'); %>
+<%- include('../../../../partials/navbar'); %>
+
+
+<% if(message.length != 0){ %>
+          
+  <div class="container mt-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <p><%= message %></p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  </div>
+
+<% } %>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
+
+      <div class="col">
+        <a href="/historico/defeito/cadastro">
+          <div class="card">
+            <img src="/img/historicoDeProduto.jpg" class="card-img-top" alt="Placas de processo SMT">
+            <div class="card-body">
+              <h5 class="card-title">Cadastro</h5>
+            </div>
+          </div>
+        </a>          
+      </div>
+
+      <div class="col">
+        <a href="/historico/defeito/lista">
+          <div class="card">
+            <img src="/img/historicoDeProduto.jpg" class="card-img-top" alt="Placas de processo SMT">
+            <div class="card-body">
+              <h5 class="card-title">Lista</h5>
+            </div>
+          </div>
+        </a>  
+      </div>
+        
+    </div>
+</div>
+
+
+<%- include('../../../../partials/footer'); %>

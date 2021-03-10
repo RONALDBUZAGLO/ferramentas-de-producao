@@ -4,7 +4,6 @@ const Stencil = require('./Stencil');
 
 
 //ROTAS STENCIL
-
 router.get("/stencil/cadastro",(req,res)=>{
     res.render("pages/menu/stencil/cadastro",{
         titulo:'Stencil'
@@ -82,16 +81,6 @@ router.get("/stencil/lista",(req,res)=>{
     });
 });
 
-// router.post("/stencil/lista/modal",(req,res)=>{
-
-//     const { id , descricao } = req.body; 
-
-//     res.render("partials/modal",{
-//         id:id,
-//         descricao:descricao
-//     });
-// })
-
 router.post("/stencil/lista/deletar",(req,res)=>{
 
     const id = req.body.id;
@@ -115,18 +104,13 @@ router.post("/stencil/lista/deletar",(req,res)=>{
     }
 });
 
-
-
 router.get("/stencil/busca",(req,res)=>{
     res.render("pages/menu/stencil/busca",{titulo:"Buscar",message:"busca"});
 });
 
-
-
-
 router.get("/stencil/editar/:id",(req,res)=>{
 
-    var id = req.params.id;
+    const id = req.params.id;
 
     Stencil.findByPk(id).then((stencil)=>{
         if (stencil != undefined) {
@@ -140,6 +124,5 @@ router.get("/stencil/editar/:id",(req,res)=>{
         res.redirect("/stencil")
     })
 } )
-
 
 module.exports = router;

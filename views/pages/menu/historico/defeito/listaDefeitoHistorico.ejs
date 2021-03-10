@@ -1,0 +1,41 @@
+<%- include('../../../../partials/header'); %>
+<%- include('../../../../partials/navbar'); %>
+
+
+<div class="container mt-3">
+
+    <h1>Lista de Defeitos</h1>
+
+    <table class="table table-sm">
+        <thead>
+
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+        
+            <% defeitos.forEach(defeito=>{ %>
+
+                <tr>
+                    <th scope="row"><a href="/historico/defeito/editar/<%= defeito.id %>"><%= defeito.id %></a></th>
+                    <td><a href="/historico/defeito/editar/<%= defeito.id %>"><%=defeito.nomeDefeito%></a></td>
+                    <td><a href="/historico/defeito/editar/<%= defeito.id %>"><%=defeito.descricaoDefeito%></a></td>
+                </tr>
+
+            <% }) %>
+
+        </tbody>
+
+
+    </table>
+    
+</div>
+
+
+
+<%- include('../../../../partials/footer'); %>

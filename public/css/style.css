@@ -61,6 +61,11 @@ a{
     text-decoration: none;
     color: rgb(53, 53, 53);
 }
+
+a:hover{
+    color: rgb(53, 53, 53);
+}
+
 /* LIMITADOR PARA CAMPO MODIFICAÇÃO DA LISTA STENCIL */
 .limitador {
     max-width: 60px;

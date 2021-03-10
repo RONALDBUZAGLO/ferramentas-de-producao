@@ -1,71 +1,21 @@
 <%- include('../../../partials/header'); %>
 <%- include('../../../partials/navbar'); %>
 
-<% if(message.length != 0){ %>
-          
-    <div class="container mt-2">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <p><%= message %></p>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-
-<% } %>
-<% if(msg_erro.length != 0){ %>
-          
-    <div class="container mt-2">
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <p><%= msg_erro %></p>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-
-<% } %>
-<% if(msg_success.length != 0){ %>
-          
-    <div class="container mt-2">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <p><%= msg_success %></p>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-
-<% } %>
 
 <div class="container mt-3">
 
-    <h1>Lista de Stencils</h1>
+    <h1>Lista de Historico</h1>
 
     <table class="table table-sm">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Programa</th>
-            <th scope="col">ID</th>
-            <th scope="col">MF</th>
-            <th scope="col">Modificação</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Defeito</th>
           </tr>
         </thead>
-
-    <% stencils.forEach(stencil => { %>
+    </table>
     
-        <tbody>
-          <tr>
-            <th scope="row"><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.id %></a></th>
-            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.descricao %></a></td>
-            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.codigoDoPrograma %>XX<%=stencil.lado%><%=stencil.revisaoSerie%>XX</a></td>
-            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.stencilId %></a></td>
-            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.mf %></a></td>
-            <td><a href="/stencil/editar/<%= stencil.id %>"><%= stencil.modificacao %></a></td>
-          </tr>
-        </tbody>
-    
-
-    <% }) %>
-
 </div>
 
 

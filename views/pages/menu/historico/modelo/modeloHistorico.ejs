@@ -1,0 +1,29 @@
+<%- include('../../../../partials/header'); %>
+<%- include('../../../../partials/navbar'); %>
+
+<div class="container mt-2">
+    
+    <div class="card ">
+        
+        <div class="card-header ">
+            <h1>Novo Modelo</h1>
+        </div>
+        
+        <div class="card-body">
+            <form action="/historico/modelo/salvar" method="POST" >
+                
+            <!-- INPUT TEXT -->
+            <label for="nomeModelo" class="mt-2">Modelo</label>
+            <input type="text" name="nomeModelo" required  placeholder="Digite o nome do modelo" class="form-control" required>
+                                    
+            <!-- <label for="descricaoDefeito" class="form-label mt-2">Descrição</label>
+            <textarea class="form-control" name="descricaoDefeito" id="descricaoDefeito" rows="3" placeholder="Descreva o defeito" required></textarea> -->
+
+            <button type="submit" class="btn btn-primary mt-3 form-control"> Cadastrar </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../../../partials/footer'); %>

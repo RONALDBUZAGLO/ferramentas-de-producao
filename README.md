@@ -20,8 +20,6 @@
 
 * [ ] Criar sistema de ordenação (por qualquer campo)
 
-* [ ] Tornar os menus do navbar dinâmicos
-
 * [x] Modal pedindo confirmação para excluir arquivo
 
 * [ ] Remover os botões de Editar e Deletar da listagem
@@ -32,11 +30,11 @@
 
 * [ ] clica no botão manda pra rota modal com os valores de id
 
-* [ ] Puxar os valores do stencil que vai ser editado
+* [x] Puxar os valores do stencil que vai ser editado
 
 * [ ] Finalizar a edição do stencil
 
-* [ ] Iniciar terramenta de histórico
+* [x] Iniciar terramenta de histórico
 
 * [x] Criar uma lista de defeitos
   * [x] CRUD de defeitos
@@ -44,19 +42,29 @@
     * [x] Descrição do defeito
   * [x] Renderizar os defeitos na tela de Nova ocorrencia em modo de lista (apenas os nomes)
 
-  * [ ] CRUD de modelos (NPI)
-    * [ ] Modelo
-    * [ ] Código do programa
-    * [ ] Placa
-     * [ ] Foto da placa     
-     * [ ] Dimensões
-      * [ ] width
-      * [ ] length
-      * [ ] thikiness
-    * [ ] Stencil
-     * [ ] Descrição
-     * [ ] Modificação
-     * [ ] Lado
-     * [ ] Revisão/Série
-     * [ ] MF
-     * [ ] ID
+  * [x] CRUD de modelos (NPI)
+    * [x] nome do Modelo
+    * [ ] Código do programa (depois)
+    * [ ] Placa (depois)
+      * [ ] Foto da placa (depois)
+      * [ ] Dimensões (depois)
+        * [ ] width
+        * [ ] length
+        * [ ] thikiness
+    * [ ] Stencil (depois)
+      * [ ] Descrição
+      * [ ] Modificação
+      * [ ] Lado
+      * [ ] Revisão/Série
+      * [ ] MF
+      * [ ] ID
+
+* [ ] Tornar os menus do navbar dinâmicos
+  * [ ] historico
+    * [ ] cadastro
+    * [ ] busca
+    * [ ] defeito
+    * [ ] modelo
+    * [ ] lista
+
+* [ ] Cadastrar o modelo no banco de dados

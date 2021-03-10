@@ -16,9 +16,11 @@
                 <label for="descricao" class="mt-2">Modelo</label>
                 <select class="form-select" id="inputGroupSelect01">
                     <option selected></option>
-                    <!-- <% defeitos.forEach(defeito=>{ %>
-                        <option value="<%=defeito.id%>"><%= defeito.nomeDefeito %></option>
-                    <% }) %> -->
+
+                    <% modelos.forEach(modelo=>{ %>
+                        <option value="<%=modelo.id%>"><%= modelo.nomeModelo %></option>
+                    <% }) %>
+                    
                 </select>
                 
                 <label for="modificacao" class="mt-2">Tipo de defeito</label>
