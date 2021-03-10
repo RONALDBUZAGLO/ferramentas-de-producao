@@ -1,6 +1,18 @@
 <%- include('../../../partials/header'); %>
 <%- include('../../../partials/navbar'); %>
 
+
+<% if(message.length != 0){ %>
+          
+  <div class="container mt-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <p><%= message %></p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  </div>
+
+<% } %>
+
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
 
@@ -34,6 +46,18 @@
               <img src="/img/historicoDeProduto.jpg" class="card-img-top" alt="Placas de processo SMT">
               <div class="card-body">
                 <h5 class="card-title">Busca</h5>
+                <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              </div>
+            </div>
+          </a>  
+        </div>
+
+        <div class="col">
+          <a href="/historico/defeito">
+            <div class="card">
+              <img src="/img/historicoDeProduto.jpg" class="card-img-top" alt="Imagens de stencil">
+              <div class="card-body">
+                <h5 class="card-title">Novo Defeito</h5>
                 <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               </div>
             </div>

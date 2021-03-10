@@ -11,7 +11,6 @@ router.get("/stencil/cadastro",(req,res)=>{
     });
 });
 
-
 //GERA QR CODE PARA A ROTA CADASTRO DE STENCIL
 router.post("/stencil/salvar",(req,res)=>{
 

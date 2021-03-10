@@ -12,8 +12,10 @@ router.get("/stencil",(req,res)=>{
 });
 
 router.get("/historico",(req,res)=>{
+    const message = req.flash("message");
     res.render("pages/menu/historico/menuHistorico",{
-        titulo:'Histórico'
+        titulo:'Histórico',
+        message:message
     });
 });
 
