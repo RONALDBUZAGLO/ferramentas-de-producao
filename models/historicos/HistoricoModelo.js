@@ -12,6 +12,6 @@ const HistoricoModelo = connection.define('historicoModelo',{
     // }
 });
 
-// HistoricoModelo.sync({force:false}).then(()=>{});
+HistoricoModelo.sync({force:false}).then(()=>{});
 
 module.exports = HistoricoModelo;

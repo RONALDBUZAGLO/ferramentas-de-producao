@@ -12,6 +12,6 @@ const HistoricoDefeito = connection.define('historicoDefeito',{
     }
 });
 
-// HistoricoDefeito.sync({force:false}).then(()=>{});
+HistoricoDefeito.sync({force:false}).then(()=>{});
 
 module.exports = HistoricoDefeito;
