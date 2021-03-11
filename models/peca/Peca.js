@@ -21,6 +21,6 @@ const Peca = connection.define('peca',{
 
 });
 
-// Peca.sync({force:false}).then(()=>{});
+Peca.sync({force:false}).then(()=>{});
 
 module.exports = Peca;
