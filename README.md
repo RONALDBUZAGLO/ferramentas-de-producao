@@ -44,7 +44,7 @@
 
   * [x] CRUD de modelos (NPI)
     * [x] nome do Modelo
-    * [ ] Código do programa (depois)
+    * [ ] Código do programa
     * [ ] Placa (depois)
       * [ ] Foto da placa (depois)
       * [ ] Dimensões (depois)
