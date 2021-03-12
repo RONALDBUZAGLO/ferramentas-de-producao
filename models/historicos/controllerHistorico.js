@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Historico = require('./Historico');
+const Historico = require('./Historico'); 
 const HistoricoDefeito = require('./HistoricoDefeito');
 const HistoricoModelo = require('./HistoricoModelo');
 
@@ -128,7 +128,7 @@ router.post("/historico/defeito/salvar",(req,res)=>{
             res.redirect("/historico");
   
     }).catch((err)=>{
-        console.log("----erro ao salvar dados: "+err+" -----");
+        console.log("----erro ao salvar dados: " + err + " -----");
         req.flash('message','Erro ao cadastrar!');
         res.redirect('/historico');
     });

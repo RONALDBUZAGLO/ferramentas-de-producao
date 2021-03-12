@@ -10,6 +10,20 @@ const DB_DATABASE = process.env.DB_DATABASE;
 const SSLMODE = process.env.SSLMODE;
 const AMBIENTE = process.env.AMBIENTE;
 
+if(AMBIENTE == "digitalocean"){
+    
+    const connection = new Sequelize(DB_NAME,DB_USER_NAME,DB_PASSWORD,{
+        host: DB_HOST,
+        dialect: 'mysql',
+        port:DB_PORT,
+        database: DB_DATABASE,
+        sslmode: SSLMODE,
+    });
+
+    module.exports = connection;
+
+}
+
 if(AMBIENTE == "desenvolvimento"){
     
     const connection = new Sequelize(DB_NAME,DB_USER_NAME,DB_PASSWORD,{
@@ -19,14 +33,13 @@ if(AMBIENTE == "desenvolvimento"){
 
     module.exports = connection;
 
-}else{
+}
+
+if(AMBIENTE == "heroku"){
 
     const connection = new Sequelize(DB_NAME,DB_USER_NAME,DB_PASSWORD,{
         host: DB_HOST,
         dialect: 'mysql',
-        port:DB_PORT,
-        database: DB_DATABASE,
-        sslmode: SSLMODE,
     });
 
     module.exports = connection;
