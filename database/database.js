@@ -16,8 +16,8 @@ if(AMBIENTE == "digitalocean"){
         host: DB_HOST,
         dialect: 'mysql',
         port:DB_PORT,
-        database: DB_DATABASE,
-        sslmode: SSLMODE,
+        // database: DB_DATABASE,
+        // sslmode: SSLMODE,
     });
 
     module.exports = connection;

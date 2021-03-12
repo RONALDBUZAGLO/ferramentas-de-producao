@@ -21,7 +21,7 @@ const controllerStencil = require('./models/stencils/controllerStencil');
 connection.authenticate().then(()=>{
     console.log("Conexão feita com o banco de dados!");
 }).catch((msgError)=>{
-    console.log(" Houve um erro ao autenticar banco de dados: " + msgError);
+    console.log("------------------------------------------------Houve um erro ao autenticar banco de dados: " + msgError);
 });
 
 //CONFIGURAÇÃO DA VIEW ENGINE EJS
