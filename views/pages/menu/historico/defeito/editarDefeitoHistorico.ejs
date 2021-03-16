@@ -10,6 +10,7 @@
         </div>
         
         <div class="card-body">
+            
             <form action="/historico/defeito/editar/salvar" method="POST" >
                 <input type="hidden" name="id" value="<%=defeito.id%>">
                 
@@ -20,8 +21,14 @@
                 <textarea class="form-control" name="descricaoDefeito" id="descricaoDefeito" rows="3" placeholder="Descreva o defeito" required><%= defeito.descricaoDefeito %></textarea>
 
                 <button type="submit" class="btn btn-primary mt-3 form-control"> Atualizar </button>
-
             </form>
+
+            <form action="/historico/defeito/deletar" method="post">
+                <input type="hidden" name="id" value="<%=defeito.id%>">
+                <input type="hidden" name="nomeDefeito" value="<%=defeito.nomeDefeito%>">
+                <button type="submit" class="btn btn-danger mt-3 form-control"> Deletar </button>
+            </form>
+
         </div>
     </div>
 </div>

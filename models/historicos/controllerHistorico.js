@@ -177,6 +177,7 @@ router.post("/historico/modelo/editar/salvar",(req,res)=>{
     })
 
 });
+//MODELO=FIM==================================================
 
 //DEFEITO==================================================
 //DEFEITO MENU
@@ -245,7 +246,7 @@ router.post("/historico/defeito/salvar",(req,res)=>{
 router.post("/historico/defeito/deletar",(req,res)=>{
 
     const id = req.body.id;
-    const descricao = req.body.descricao;
+    // const nomeDefeito = req.body.nomeDefeito;
     
     if(id != undefined && !isNaN(id)){
 
@@ -254,14 +255,14 @@ router.post("/historico/defeito/deletar",(req,res)=>{
                     id:id
                 }
             }).then(()=>{
-                req.flash("msg_success",`Stencil Descrição: ${descricao} e ID ${id} Foi deletado`);
-                res.redirect("/stencil/lista");
+                req.flash("msg_success",`Defeito Foi deletado`);
+                res.redirect("/historico/defeito/lista");
             })
 
     }else{
 
         req.flash("msg_erro","Não foi possível deletar");
-        res.redirect('/stencil/lista');
+        res.redirect('/historico/defeito/lista');
 
     }
 });
@@ -314,23 +315,28 @@ router.post("/historico/defeito/editar/salvar",(req,res)=>{
     })
 
 });
-//DEFEITO==================================================
+//DEFEITO=FIM==================================================
 
 //SALVAR OCORRENCIA
 router.post("/historico/cadastro/salvar",(req,res)=>{
 
-    const nomeDefeito = req.body.nomeDefeito;
-    const descricaoDefeito = req.body.descricaoDefeito;
+    const modelo = req.body.modelo;
+    const defeito = req.body.defeito;
+    const origem = req.body.defeito;
+    const lado = req.body.lado;
+    const comentario = req.body.comentario;
+    const causa = req.body.causa;
+    const acoes = req.body.acoes;    
     
     HistoricoDefeito.create({
         
-        nomeDefeito,
-        descricaoDefeito,
+        modelo,
+        origem,
         
     }).then(()=>{
         
-        req.flash("message","Ocorrencia cadastrada com sucesso!");
-        res.redirect('/historico');
+        // req.flash("message","Ocorrencia cadastrada com sucesso!");
+        res.json();
   
     }).catch((err)=>{
         console.log("----erro ao salvar dados: "+err+" -----");

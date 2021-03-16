@@ -10,21 +10,19 @@
         </div>
 
         <div class="card-body">
-            <form action="/historico/salvar" method="POST" >
+            <form action="/historico/cadastro/salvar" method="POST" >
 
                 <!-- INPUT TEXT -->
                 <label for="descricao" class="mt-2">Modelo</label>
-                <select class="form-select" id="inputGroupSelect01">
+                <select name="modelo" class="form-select" id="inputGroupSelect01">
                     <option selected></option>
-
                     <% modelos.forEach(modelo=>{ %>
                         <option value="<%=modelo.id%>"><%= modelo.nomeModelo %></option>
-                    <% }) %>
-                    
+                    <% }) %>                    
                 </select>
                 
                 <label for="modificacao" class="mt-2">Tipo de defeito</label>
-                <select class="form-select" id="inputGroupSelect01">
+                <select name="defeito" class="form-select" id="inputGroupSelect01">
                     <option selected></option>
                     
                     <% defeitos.forEach(defeito=>{ %>
@@ -37,7 +35,7 @@
                     
                     <div class="col">
                         <label for="codigoDoPrograma" >Origem do defeito</label>
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select name="origem" class="form-select" id="inputGroupSelect01">
                             <option selected></option>
                             <option value="1">SMT</option>
                             <option value="2">Teste</option>
@@ -48,7 +46,7 @@
 
                     <div class="col">
                         <label for="lado" >Lado da placa</label>
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select name="lado" class="form-select" id="inputGroupSelect01">
                             <option selected></option>
                             <option value="1">A</option>
                             <option value="2">B</option>
@@ -59,17 +57,17 @@
                 
                 <div class="col mt-2">
                     <label for="exampleFormControlTextarea1" class="form-label">Comentários</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>                        
+                    <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>                        
                 </div>
 
                 <div class="col">
                     <label for="stencilId" ">Possíveis Causas</label>
-                    <input type="text" name="stencilId" required  class="form-control">        
+                    <input name="causa" type="text" name="stencilId" required  class="form-control">        
                 </div>
 
                 <div class="col">
                     <label for="exampleFormControlTextarea1" class="form-label">Ações</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <textarea name="acoes" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-3 form-control"> Cadastrar </button>
