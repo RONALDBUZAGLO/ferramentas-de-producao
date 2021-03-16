@@ -1,0 +1,31 @@
+<%- include('../../../../partials/header'); %>
+<%- include('../../../../partials/navbar'); %>
+
+<div class="container mt-2">
+    
+    <div class="card ">
+        
+        <div class="card-header ">
+            <h1>Editar Modelo</h1>
+        </div>
+        
+        <div class="card-body">
+            <form action="/historico/modelo/editar/salvar" method="POST" >
+                <input type="hidden" name="id" value="<%=modelo.id%>">
+                
+                <label for="nomeModelo" class="mt-2">Modelo</label>
+                <input type="text" name="nomeModelo" required  placeholder="Digite o nome do Modelo" class="form-control" required value="<%= modelo.nomeModelo %>">
+
+                <button type="submit" class="btn btn-primary mt-3 form-control"> Atualizar </button>
+
+            </form>
+            <form action="/historico/modelo/deletar" method="post">
+                <input type="hidden" name="id" value="<%=modelo.id%>">
+                <input type="hidden" name="nomeModelo" value="<%=modelo.nomeModelo%>">
+                <button type="submit" class="btn btn-danger mt-3 form-control"> Deletar </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../../../partials/footer'); %>

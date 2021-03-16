@@ -1,0 +1,31 @@
+<%- include('../../../../partials/header'); %>
+<%- include('../../../../partials/navbar'); %>
+
+
+<div class="container mt-3">
+
+    <h1>Lista de Modelos</h1>
+
+    <table class="table table-sm">
+        <thead>
+
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+          </tr>
+
+        </thead>
+        <tbody>
+            <% modelos.forEach(modelo=>{ %>
+                <tr>
+                    <th scope="row"><a href="/historico/modelo/editar/<%= modelo.id %>"><%= modelo.id %></a></th>
+                    <td><a href="/historico/modelo/editar/<%= modelo.id %>"><%=modelo.nomeModelo%></a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<%- include('../../../../partials/footer'); %>

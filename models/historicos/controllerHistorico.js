@@ -44,37 +44,142 @@ router.get("/historico/busca",(req,res)=>{
     });
 });
 
-//MENU MODELO
+//MODELO==================================================
+//MODELO MENU
 router.get("/historico/modelo",(req,res)=>{ 
-    res.render('pages/menu/historico/modeloHistorico',{
-        titulo:'Historico-Modelo',
+    const message = req.flash("message");
+    res.render('pages/menu/historico/modelo/menuModeloHistorico',{
+        titulo:'Menu Modelo',
+        message: message,
     });
 });
 
-//SALVAR MODELO
+//MODELO CADASTRO
+router.get("/historico/modelo/cadastro",(req,res)=>{
+    const message = req.flash("message");
+    res.render("pages/menu/historico/modelo/cadastroModeloHistorico",{
+        titulo:'Menu Defeito',
+        message: message,
+    });
+});
+
+//MODELO LISTA
+router.get("/historico/modelo/lista",(req,res)=>{ 
+
+    HistoricoModelo.findAll({raw: true,order:[['id','DESC']]}).then((modelos)=>{
+        
+        var message = req.flash("message");
+        var msg_erro = req.flash("msg_erro");
+        var msg_success = req.flash("msg_success");
+    
+        res.render('pages/menu/historico/modelo/listaModeloHistorico',{
+            titulo:'Lista Modelos',
+            message: message,
+            msg_erro: msg_erro,
+            msg_success: msg_success,
+            modelos: modelos,
+        });
+    });
+
+});
+
+//MODELO SALVAR
 router.post("/historico/modelo/salvar",(req,res)=>{
 
     const nomeModelo = req.body.nomeModelo;
-    
+        
     HistoricoModelo.create({
         
         nomeModelo,
-
+            
     }).then(()=>{
         
             req.flash('message','Modelo cadastrado com sucesso!');
             res.redirect("/historico");
   
     }).catch((err)=>{
-        console.log("----erro ao salvar dados: "+err+" -----");
+        console.log("----erro ao salvar dados: " + err + " -----");
         req.flash('message','Erro ao cadastrar!');
         res.redirect('/historico');
     });
         
+        
     
 });
 
-//MENU DEFEITO
+//MODELO DELETAR
+router.post("/historico/modelo/deletar",(req,res)=>{
+
+    const id = req.body.id;
+    const nomeModelo = req.body.nomeModelo;
+        
+    if(id != undefined && !isNaN(id)){
+
+            HistoricoModelo.destroy({
+                where:{
+                    id:id
+                }
+            }).then(()=>{
+                req.flash("msg_success",`Modelo: ${nomeModelo} Foi deletado`);
+                res.redirect("/historico/modelo/lista");
+            })
+
+    }else{
+
+        req.flash("msg_erro","Não foi possível deletar");
+        res.redirect('/historico/modelo/lista');
+
+    }
+});
+
+//MODELO EDITAR 
+router.get("/historico/modelo/editar/:id",(req,res)=>{
+
+    const id = req.params.id;
+
+    HistoricoModelo.findByPk(id).then((modelo)=>{
+        
+        if (modelo != undefined) {
+            
+            res.render("pages/menu/historico/modelo/editarModeloHistorico",{
+                titulo: "Editar Modelo",
+                modelo: modelo,
+            });
+
+        }else{
+            
+            req.flash("msg_erro","algum erro")
+            res.redirect("/historico")
+
+        }
+    }).catch(erro=>{
+        req.flash("msg_erro","algum erro")
+        res.redirect("/historico")
+    })
+
+});
+//DEFEITO SALVAR EDIÇÃO
+router.post("/historico/modelo/editar/salvar",(req,res)=>{
+
+    const id = req.body.id;
+    const nomeModelo = req.body.nomeModelo;
+
+    HistoricoModelo.update({
+        nomeModelo:nomeModelo,
+    },{where:{id:id}}).then(()=>{
+        
+        req.flash("message","Atualizado com sucesso");
+        res.redirect("/historico/modelo");
+        
+    }).catch(erro=>{
+        req.flash("msg_erro","algum erro")
+        res.redirect("/historico")
+    })
+
+});
+
+//DEFEITO==================================================
+//DEFEITO MENU
 router.get("/historico/defeito",(req,res)=>{ 
     const message = req.flash("message");
     res.render('pages/menu/historico/defeito/menuDefeitoHistorico',{
@@ -83,7 +188,7 @@ router.get("/historico/defeito",(req,res)=>{
     });
 });
 
-//CADASTRO DEFEITO
+//DEFEITO CADASTRO 
 router.get("/historico/defeito/cadastro",(req,res)=>{ 
     res.render('pages/menu/historico/defeito/cadastroDefeitoHistorico',{
         titulo:'Cadastrar Defeito',
@@ -91,7 +196,7 @@ router.get("/historico/defeito/cadastro",(req,res)=>{
     });
 });
 
-//LISTA DEFEITO
+//DEFEITO LISTA
 router.get("/historico/defeito/lista",(req,res)=>{ 
 
     HistoricoDefeito.findAll({raw: true,order:[['id','DESC']]}).then((defeitos)=>{
@@ -111,7 +216,7 @@ router.get("/historico/defeito/lista",(req,res)=>{
 
 });
 
-//SALVAR DEFEITO
+//DEFEITO SALVAR 
 router.post("/historico/defeito/salvar",(req,res)=>{
 
     const nomeDefeito = req.body.nomeDefeito;
@@ -136,7 +241,7 @@ router.post("/historico/defeito/salvar",(req,res)=>{
     
 });
 
-//DELETAR DEFEITO
+//DEFEITO DELETAR
 router.post("/historico/defeito/deletar",(req,res)=>{
 
     const id = req.body.id;
@@ -161,7 +266,7 @@ router.post("/historico/defeito/deletar",(req,res)=>{
     }
 });
 
-//EDITAR DEFEITO
+//DEFEITO EDITAR 
 router.get("/historico/defeito/editar/:id",(req,res)=>{
 
     const id = req.params.id;
@@ -188,7 +293,7 @@ router.get("/historico/defeito/editar/:id",(req,res)=>{
 
 });
 
-//EDITAR DEFEITO
+//DEFEITO SALVAR EDIÇÃO
 router.post("/historico/defeito/editar/salvar",(req,res)=>{
 
     const id = req.body.id;
@@ -209,6 +314,7 @@ router.post("/historico/defeito/editar/salvar",(req,res)=>{
     })
 
 });
+//DEFEITO==================================================
 
 //SALVAR OCORRENCIA
 router.post("/historico/cadastro/salvar",(req,res)=>{
