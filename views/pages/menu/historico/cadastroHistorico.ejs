@@ -17,7 +17,7 @@
                 <select name="modelo" class="form-select" id="inputGroupSelect01">
                     <option selected></option>
                     <% modelos.forEach(modelo=>{ %>
-                        <option value="<%=modelo.id%>"><%= modelo.nomeModelo %></option>
+                        <option value="<%=modelo.nomeModelo%>"><%= modelo.nomeModelo %></option>
                     <% }) %>                    
                 </select>
                 
@@ -26,7 +26,7 @@
                     <option selected></option>
                     
                     <% defeitos.forEach(defeito=>{ %>
-                        <option value="<%=defeito.id%>"><%= defeito.nomeDefeito %></option>
+                        <option value="<%=defeito.nomeDefeito%>"><%= defeito.nomeDefeito %></option>
                     <% }) %>
 
                 </select>
@@ -37,10 +37,10 @@
                         <label for="codigoDoPrograma" >Origem do defeito</label>
                         <select name="origem" class="form-select" id="inputGroupSelect01">
                             <option selected></option>
-                            <option value="1">SMT</option>
-                            <option value="2">Teste</option>
-                            <option value="3">IMC</option>
-                            <option value="4">Material</option>
+                            <option value="SMT">SMT</option>
+                            <option value="TESTE">TESTE</option>
+                            <option value="IMC">IMC</option>
+                            <option value="MATERIAL">MATERIAL</option>
                         </select>    
                     </div>
 
@@ -48,8 +48,8 @@
                         <label for="lado" >Lado da placa</label>
                         <select name="lado" class="form-select" id="inputGroupSelect01">
                             <option selected></option>
-                            <option value="1">A</option>
-                            <option value="2">B</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
                         </select>
                     </div>
 
@@ -67,7 +67,7 @@
 
                 <div class="col">
                     <label for="exampleFormControlTextarea1" class="form-label">Ações</label>
-                    <textarea name="acoes" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <textarea name="acao" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-3 form-control"> Cadastrar </button>

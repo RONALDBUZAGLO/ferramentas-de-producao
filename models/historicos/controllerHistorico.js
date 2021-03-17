@@ -32,6 +32,40 @@ router.get("/historico/cadastro",(req,res)=>{
 
 });
 
+//OCORRENCIA CADASTRO SALVAR
+router.post("/historico/cadastro/salvar",(req,res)=>{
+
+    const modelo = req.body.modelo;
+    const defeito = req.body.defeito;
+    const origem = req.body.origem;
+    const lado = req.body.lado;
+    const comentario = req.body.comentario;
+    const causa = req.body.causa;
+    const acao = req.body.acao;
+       
+    Historico.create({
+        modelo,
+        defeito,
+        origem,
+        lado,
+        comentario,
+        causa,
+        acao,        
+    }).then(()=>{
+        req.flash("message","Ocorrencia cadastrada com sucesso!");
+        res.redirect("/historico");
+    }).catch((err)=>{
+        console.log(`
+        ---- Erro ao salvar dados na tabela Historico: ${err} -----
+        `);
+        req.flash('message','Erro ao cadastrar!');
+        res.redirect('/historico');
+    });
+
+    
+
+});
+
 router.get("/historico/lista",(req,res)=>{ 
     res.render('pages/menu/historico/listaHistorico',{
         titulo:'Historico-Lista',
@@ -317,35 +351,6 @@ router.post("/historico/defeito/editar/salvar",(req,res)=>{
 });
 //DEFEITO=FIM==================================================
 
-//SALVAR OCORRENCIA
-router.post("/historico/cadastro/salvar",(req,res)=>{
 
-    const modelo = req.body.modelo;
-    const defeito = req.body.defeito;
-    const origem = req.body.defeito;
-    const lado = req.body.lado;
-    const comentario = req.body.comentario;
-    const causa = req.body.causa;
-    const acoes = req.body.acoes;    
-    
-    HistoricoDefeito.create({
-        
-        modelo,
-        origem,
-        
-    }).then(()=>{
-        
-        // req.flash("message","Ocorrencia cadastrada com sucesso!");
-        res.json();
-  
-    }).catch((err)=>{
-        console.log("----erro ao salvar dados: "+err+" -----");
-        req.flash('message','Erro ao cadastrar!');
-        res.redirect('/historico');
-    });
-
-    
-
-});
 
 module.exports = router;
