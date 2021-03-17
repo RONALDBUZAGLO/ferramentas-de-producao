@@ -62,7 +62,7 @@
 * [x] Editar ocorrências
 * [ ] Deletar ocorrências
 
-
+* [ ] Implementar a lista de opções para os modelos que a usam na tela de atualização
 
 
 

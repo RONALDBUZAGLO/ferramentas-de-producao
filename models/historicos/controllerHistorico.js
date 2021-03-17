@@ -33,7 +33,7 @@ router.get("/historico/cadastro",(req,res)=>{
 
 });
 
-//OCORRENCIA CADASTRO SALVAR
+//OCORRENCIA SALVAR
 router.post("/historico/cadastro/salvar",(req,res)=>{
 
     const modelo = req.body.modelo;
@@ -81,6 +81,30 @@ router.get("/historico/lista",(req,res)=>{
             ocorrencias: ocorrencias,
         });
     });
+});
+
+//OCORRENCIA DELETAR
+router.post("/historico/deletar",(req,res)=>{
+
+    const id = req.body.id;
+        
+    if(id != undefined && !isNaN(id)){
+
+            Historico.destroy({
+                where:{
+                    id:id
+                }
+            }).then(()=>{
+                req.flash("msg_success",`Ocorrencia deletada com sucesso`);
+                res.redirect("/historico/lista");
+            })
+
+    }else{
+
+        req.flash("msg_erro","Não foi possível deletar");
+        res.redirect('/historico/modelo/lista');
+
+    }
 });
 
 //OCORRENCIA EDITAR
@@ -144,12 +168,13 @@ router.post("/historico/editar/salvar",(req,res)=>{
 
 });
 
-
+//OCORRENCIA BUSCA
 router.get("/historico/busca",(req,res)=>{ 
     res.render('pages/menu/historico/buscaHistorico',{
         titulo:'Historico-Busca',
     });
 });
+//OCORRENCIA=FIM=========================================
 
 //MODELO==================================================
 //MODELO MENU
@@ -168,26 +193,6 @@ router.get("/historico/modelo/cadastro",(req,res)=>{
         titulo:'Menu Defeito',
         message: message,
     });
-});
-
-//MODELO LISTA
-router.get("/historico/modelo/lista",(req,res)=>{ 
-
-    HistoricoModelo.findAll({raw: true,order:[['id','DESC']]}).then((modelos)=>{
-        
-        var message = req.flash("message");
-        var msg_erro = req.flash("msg_erro");
-        var msg_success = req.flash("msg_success");
-    
-        res.render('pages/menu/historico/modelo/listaModeloHistorico',{
-            titulo:'Lista Modelos',
-            message: message,
-            msg_erro: msg_erro,
-            msg_success: msg_success,
-            modelos: modelos,
-        });
-    });
-
 });
 
 //MODELO SALVAR
@@ -212,6 +217,26 @@ router.post("/historico/modelo/salvar",(req,res)=>{
         
         
     
+});
+
+//MODELO LISTA
+router.get("/historico/modelo/lista",(req,res)=>{ 
+
+    HistoricoModelo.findAll({raw: true,order:[['id','DESC']]}).then((modelos)=>{
+        
+        var message = req.flash("message");
+        var msg_erro = req.flash("msg_erro");
+        var msg_success = req.flash("msg_success");
+    
+        res.render('pages/menu/historico/modelo/listaModeloHistorico',{
+            titulo:'Lista Modelos',
+            message: message,
+            msg_erro: msg_erro,
+            msg_success: msg_success,
+            modelos: modelos,
+        });
+    });
+
 });
 
 //MODELO DELETAR
@@ -304,26 +329,6 @@ router.get("/historico/defeito/cadastro",(req,res)=>{
     });
 });
 
-//DEFEITO LISTA
-router.get("/historico/defeito/lista",(req,res)=>{ 
-
-    HistoricoDefeito.findAll({raw: true,order:[['id','DESC']]}).then((defeitos)=>{
-        
-        var message = req.flash("message");
-        var msg_erro = req.flash("msg_erro");
-        var msg_success = req.flash("msg_success");
-    
-        res.render('pages/menu/historico/defeito/listaDefeitoHistorico',{
-            titulo:'Lista Defeitos',
-            message: message,
-            msg_erro: msg_erro,
-            msg_success: msg_success,
-            defeitos: defeitos,
-        });
-    });
-
-});
-
 //DEFEITO SALVAR 
 router.post("/historico/defeito/salvar",(req,res)=>{
 
@@ -347,6 +352,26 @@ router.post("/historico/defeito/salvar",(req,res)=>{
     });
         
     
+});
+
+//DEFEITO LISTA
+router.get("/historico/defeito/lista",(req,res)=>{ 
+
+    HistoricoDefeito.findAll({raw: true,order:[['id','DESC']]}).then((defeitos)=>{
+        
+        var message = req.flash("message");
+        var msg_erro = req.flash("msg_erro");
+        var msg_success = req.flash("msg_success");
+    
+        res.render('pages/menu/historico/defeito/listaDefeitoHistorico',{
+            titulo:'Lista Defeitos',
+            message: message,
+            msg_erro: msg_erro,
+            msg_success: msg_success,
+            defeitos: defeitos,
+        });
+    });
+
 });
 
 //DEFEITO DELETAR

@@ -50,6 +50,10 @@
                 <button type="submit" class="btn btn-primary mt-3 form-control"> Atualizar </button>
 
             </form>
+            <form action="/historico/deletar" method="post">
+                <input type="hidden" name="id" value="<%=ocorrencia.id%>">
+                <button type="submit" class="btn btn-danger mt-3 form-control"> Deletar </button>
+            </form>
         </div>
     </div>
 </div>
