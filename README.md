@@ -58,9 +58,11 @@
 
 * [ ] Confirmação para exclusão de itens em Ocorrencias
 
-* [ ] Listar ocorrências
-* [ ] Editar ocorrências
+* [x] Listar ocorrências
+* [x] Editar ocorrências
 * [ ] Deletar ocorrências
+
+
 
 
 

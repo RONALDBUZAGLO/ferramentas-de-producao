@@ -5,7 +5,8 @@ const HistoricoDefeito = require('./HistoricoDefeito');
 const HistoricoModelo = require('./HistoricoModelo');
 
 
-//ROTAS HISTÓRICO MENU
+//OCORRENCIA==========================================
+//OCORRENCIA CADASTRO
 router.get("/historico/cadastro",(req,res)=>{ 
 
     HistoricoDefeito.findAll({raw: true,order:[['id','DESC']]}).then((defeitos)=>{
@@ -63,6 +64,7 @@ router.post("/historico/cadastro/salvar",(req,res)=>{
     });
 });
 
+//OCORRENCIA LISTA
 router.get("/historico/lista",(req,res)=>{ 
     
     Historico.findAll({raw: true,order:[['id','DESC']]}).then((ocorrencias)=>{
@@ -80,6 +82,68 @@ router.get("/historico/lista",(req,res)=>{
         });
     });
 });
+
+//OCORRENCIA EDITAR
+router.get("/historico/editar/:id",(req,res)=>{
+    
+    const id = req.params.id;
+
+    Historico.findByPk(id).then((ocorrencia)=>{
+        
+        if (ocorrencia != undefined) {
+            
+            res.render("pages/menu/historico/editarHistorico",{
+                titulo: "Editar Ocorrência",
+                ocorrencia: ocorrencia,
+            });
+
+        }else{
+            
+            req.flash("msg_erro",`Erro ao buscar ocorrências`)
+            res.redirect("/historico");
+
+        }
+    }).catch(erro=>{
+        req.flash("msg_erro",`Erro ao buscar ocorrências`)
+        res.redirect("/historico")
+    })
+
+
+
+});
+
+//OCORRENCIA SALVAR EDIÇÃO
+router.post("/historico/editar/salvar",(req,res)=>{
+
+    const id = req.body.id;
+    const modelo = req.body.modelo;
+    const defeito = req.body.defeito;
+    const origem = req.body.origem;
+    const lado = req.body.lado;
+    const comentario = req.body.comentario;
+    const causa = req.body.causa;
+    const acao = req.body.acao;
+
+    Historico.update({
+        modelo:modelo,
+        defeito:defeito,
+        origem:origem,
+        lado:lado,
+        comentario:comentario,
+        causa:causa,
+        acao:acao,
+    },{where:{id:id}}).then(()=>{
+        
+        req.flash("message","Atualizado com sucesso");
+        res.redirect("/historico/lista");
+        
+    }).catch(erro=>{
+        req.flash("msg_erro","algum erro")
+        res.redirect("/historico")
+    })
+
+});
+
 
 router.get("/historico/busca",(req,res)=>{ 
     res.render('pages/menu/historico/buscaHistorico',{
