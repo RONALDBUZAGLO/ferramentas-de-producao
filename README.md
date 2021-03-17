@@ -50,4 +50,17 @@
     * [ ] modelo
     * [ ] lista
 
-* [ ] Cadastrar o modelo no banco de dados
+* [x] Cadastrar o modelo no banco de dados
+
+* [ ] Confirmação para exclusão de itens em Defeitos
+
+* [ ] Confirmação para exclusão de itens em Modelos
+
+* [ ] Confirmação para exclusão de itens em Ocorrencias
+
+* [ ] Listar ocorrências
+* [ ] Editar ocorrências
+* [ ] Deletar ocorrências
+
+
+

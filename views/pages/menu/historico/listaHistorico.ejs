@@ -4,19 +4,33 @@
 
 <div class="container mt-3">
 
-    <h1>Lista de Historico</h1>
+  <h1>Lista de Ocorrências</h1>
 
-    <table class="table table-sm">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Defeito</th>
-          </tr>
-        </thead>
-    </table>
+  <table class="table table-sm">
     
-</div>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Defeito</th>
+        <th scope="col">Origem</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% ocorrencias.forEach(ocorrencia=>{ %>
+        <tr>
+          <th scope="row"><a href="/historico/editar/<%= ocorrencia.id %>"><%= ocorrencia.id %></a></th>
+          <td><a href="/historico/editar/<%= ocorrencia.id %>"><%=ocorrencia.modelo%></a></td>
+          <td><a href="/historico/editar/<%= ocorrencia.id %>"><%=ocorrencia.defeito%></a></td>
+          <td><a href="/historico/editar/<%= ocorrencia.id %>"><%=ocorrencia.origem%></a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+
+  </table>
+
+</div><!-- container -->
 
 
 

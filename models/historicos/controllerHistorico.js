@@ -61,14 +61,23 @@ router.post("/historico/cadastro/salvar",(req,res)=>{
         req.flash('message','Erro ao cadastrar!');
         res.redirect('/historico');
     });
-
-    
-
 });
 
 router.get("/historico/lista",(req,res)=>{ 
-    res.render('pages/menu/historico/listaHistorico',{
-        titulo:'Historico-Lista',
+    
+    Historico.findAll({raw: true,order:[['id','DESC']]}).then((ocorrencias)=>{
+        
+        var message = req.flash("message");
+        var msg_erro = req.flash("msg_erro");
+        var msg_success = req.flash("msg_success");
+    
+        res.render('pages/menu/historico/listaHistorico',{
+            titulo:'Lista-Ocorrencias',
+            message: message,
+            msg_erro: msg_erro,
+            msg_success: msg_success,
+            ocorrencias: ocorrencias,
+        });
     });
 });
 
